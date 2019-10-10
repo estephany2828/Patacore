@@ -1,2 +1,2 @@
 # Patacore
-Aplicación Móvil, lenguaje Kotlin 
+Aplicación Móvil, lenguaje Java
