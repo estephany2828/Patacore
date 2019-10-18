@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import edu.unicauca.patacore.R;
 import edu.unicauca.patacore.ui.login.LoginViewModel;
 import edu.unicauca.patacore.ui.login.LoginViewModelFactory;
+import edu.unicauca.patacore.view.MainMenuActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -115,8 +117,13 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+               goMenuPrincipal(v);
             }
         });
+    }
+    public void goMenuPrincipal(View view){
+        Intent intent = new Intent(this, MainMenuActivity.class);
+        startActivity(intent);
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
