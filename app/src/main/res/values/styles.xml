@@ -6,6 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!--Tolbar-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
     <!-- estilo del boton del login. -->
     <style name="ButtonDarkLogin" parent="Theme.AppCompat.Light">
@@ -32,6 +36,7 @@
         <item name="colorControlNormal">@color/editTextColorBlack</item>
         <item name="colorControlActivated">@color/editTextColorBlack</item>
     </style>
+
 
 
 </resources>

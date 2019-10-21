@@ -27,7 +27,6 @@ public class MainMenuActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(upBotton);
 
-
     }
 
 
