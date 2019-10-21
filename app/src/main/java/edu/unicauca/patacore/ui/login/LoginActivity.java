@@ -22,27 +22,37 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import edu.unicauca.patacore.R;
 import edu.unicauca.patacore.ui.login.LoginViewModel;
 import edu.unicauca.patacore.ui.login.LoginViewModelFactory;
 import edu.unicauca.patacore.view.MainMenuActivity;
 
-public class LoginActivity extends AppCompatActivity {
+//implements View.OnClickListener
+public class LoginActivity extends AppCompatActivity{
 
-    private LoginViewModel loginViewModel;
+    public LoginViewModel loginViewModel;
+    //Declara varables
+    Button loginButton;
+    ToggleButton toggleButton;
+    EditText usernameEditText;
+    EditText passwordEditText;
+    ProgressBar loadingProgressBar;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
-        final Button loginButton = findViewById(R.id.login);
-        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+        usernameEditText = findViewById(R.id.username);
+        passwordEditText = findViewById(R.id.password);
+        loginButton = findViewById(R.id.login);
+        loadingProgressBar = findViewById(R.id.loading);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -75,8 +85,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 setResult(Activity.RESULT_OK);
 
+
                 //Complete and destroy login activity once successful
-                finish();
+                //finish();
+
             }
         });
 
@@ -115,11 +127,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
-               goMenuPrincipal(v);
+                loginViewModel.login(usernameEditText.getText().toString(),passwordEditText.getText().toString());
+                goMenuPrincipal(v);
+                finish();
             }
         });
+        //loginButton.setOnClickListener(this)
     }
     public void goMenuPrincipal(View view){
         Intent intent = new Intent(this, MainMenuActivity.class);
@@ -131,9 +144,20 @@ public class LoginActivity extends AppCompatActivity {
         String welcome = getString(R.string.welcome);
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+
+
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
+ /*    @Override
+   public void onClick(View view) {
+        //loadingProgressBar.setVisibility(View.VISIBLE);
+        loginViewModel.login(usernameEditText.getText().toString(),
+                passwordEditText.getText().toString());
+        goMenuPrincipal(view);
+
+    }*/
 }
