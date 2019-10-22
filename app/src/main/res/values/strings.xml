@@ -10,4 +10,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="hint_username">Email</string>
+    <string name="textname_card">Pedidos en preparacion</string>
+    <string name="textdate_card">fecha y hora del pedido</string>
+    <string name="textdatact_card">date</string>
 </resources>
