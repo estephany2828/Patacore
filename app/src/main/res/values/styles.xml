@@ -9,8 +9,8 @@
     </style>
     <!-- estilo del boton del login. -->
     <style name="ButtonDarkLogin" parent="Theme.AppCompat.Light">
-        <item name="colorButtonNormal">@color/colorPrimaryDark</item>
-        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="colorButtonNormal">@color/colorPrimaryLight</item>
+        <item name="colorControlHighlight">@color/PrimaryLightHighlight</item>
         <item name="android:textColor">@color/colorSecondary</item>
     </style>
     <!-- Customize your theme here. -->
