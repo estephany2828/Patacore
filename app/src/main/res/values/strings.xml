@@ -12,4 +12,16 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="hint_username">Email</string>
+    <!--card-->
+    <string name="textname_card">Pedidos en preparacion</string>
+    <string name="textdate_card">fecha y hora del pedido</string>
+    <string name="textdatact_card">date</string>
+    <!--tabs-->
+    <string name="tab_new">Nuevo</string>
+    <string name="tab_add">Add</string>
+    <string name="tab_listar">Listar</string>
+    <string name="tab_del">Del</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
