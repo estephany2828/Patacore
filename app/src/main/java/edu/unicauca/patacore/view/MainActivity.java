@@ -1,8 +1,10 @@
-package edu.unicauca.patacore;
+package edu.unicauca.patacore.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import edu.unicauca.patacore.R;
 
 public class MainActivity extends AppCompatActivity {
 

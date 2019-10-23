@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item
+            android:id="@+id/listarTab"
+            android:title="@string/tab_listar"
+            android:icon="@drawable/ic_listar"
+
+            />
+        <item
+            android:id="@+id/adiccionarTab"
+            android:title="@string/tab_add"
+            android:icon="@drawable/ic_add"
+
+
+            />
+        <item
+            android:id="@+id/newTab"
+            android:title="@string/tab_new"
+            android:icon="@drawable/ic_listar"
+
+
+            />
+        <item
+            android:id="@+id/delTab"
+            android:title="@string/tab_del"
+            android:icon="@drawable/ic_delete"
+            app:tabBackground="@drawable/bottom_nav_color"
+            />
+
+</menu>

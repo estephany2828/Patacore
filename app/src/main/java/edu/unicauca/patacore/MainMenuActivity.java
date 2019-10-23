@@ -1,4 +1,4 @@
-package edu.unicauca.patacore.view;
+package edu.unicauca.patacore;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
