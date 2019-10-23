@@ -22,4 +22,8 @@
         <item name="android:textColor">@color/colorPrimaryLight</item>
         <item name="android:textColorPrimary">@color/colorPrimaryLight</item>
     </style>
+    <!--Color icono login-->
+    <style name="IconLoginColor" parent="Theme.AppCompat.Light">
+        <item name="android:tint">@color/colorSecondary</item>
+    </style>
 </resources>

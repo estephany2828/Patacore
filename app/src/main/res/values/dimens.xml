@@ -4,4 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- <dimen name="padding_horizontal_loggin">52dp</dimen>-->
     <dimen name="borderLogin">4dp</dimen>
+    <dimen name="iconLoginLeft">32dp</dimen>
+    <dimen name="zerodp">0dp</dimen>
 </resources>
