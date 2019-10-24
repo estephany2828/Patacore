@@ -12,6 +12,7 @@
     <dimen name="prind_mgtop_card">10dp</dimen>
     <!--medidas para las bootombar-->
     <dimen name="firstheight_bottombar">70dp</dimen>
+    <dimen name="fab_margin">5sp</dimen>
 
     <!-- <dimen name="padding_horizontal_loggin">52dp</dimen>-->
 </resources>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-
+    android:layout_margin="20dp"
     android:layout_width="match_parent"
     android:layout_height="@dimen/prin_list_pedidos"
     android:id="@+id/list_pedidos">
@@ -12,9 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/prind_mgtop_card"
-        android:background="@color/colorSecondary"
-        app:layout_constraintBottom_toBottomOf="@+id/textNameCard"
-        app:layout_constraintTop_toBottomOf="@+id/textNameCard">
+        android:background="@color/colorSecondary">
 
         <ImageView
             android:id="@+id/iconCard"
@@ -77,9 +76,6 @@
             app:layout_constraintStart_toStartOf="@+id/textDateCard"
             tools:ignore="MissingConstraints" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.cardview.widget.CardView>
-
+    </androidx.cardview.widget.CardView>
 
