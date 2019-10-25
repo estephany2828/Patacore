@@ -1,24 +1,22 @@
 package edu.unicauca.patacore.model;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+
 public class Pedidos {
-    private int iconCard;
+    private int imgCard;
     private String textNameCard;
     private String textDateCard;
     private String textDateActCard;
 
-    public Pedidos(int iconCard, String textNameCard, String textDateCard, String textDateActCard) {
-        this.iconCard = iconCard;
-        this.textNameCard = textNameCard;
-        this.textDateCard = textDateCard;
-        this.textDateActCard = textDateActCard;
+
+    public int getImgCard() {
+        return imgCard;
     }
 
-    public int getIconCard() {
-        return iconCard;
-    }
-
-    public void setIconCard(int iconCard) {
-        this.iconCard = iconCard;
+    public void setImgCard(int imgCard) {
+        this.imgCard = imgCard;
     }
 
     public String getTextNameCard() {
@@ -44,5 +42,15 @@ public class Pedidos {
     public void setTextDateActCard(String textDateActCard) {
         this.textDateActCard = textDateActCard;
     }
+
+    public Pedidos(int imgCard, String textNameCard, String textDateCard, String textDateActCard) {
+        this.imgCard = imgCard;
+        this.textNameCard = textNameCard;
+        this.textDateCard = textDateCard;
+        this.textDateActCard = textDateActCard;
+    }
+
+
+
 }
 

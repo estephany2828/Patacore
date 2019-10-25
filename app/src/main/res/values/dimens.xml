@@ -4,14 +4,14 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <!--medidas para las card-->
-    <dimen name="prin_list_pedidos">150</dimen>
+    <dimen name="prin_list_pedidos">100dp</dimen>
     <dimen name="list_height_pedidos">130dp</dimen>
     <dimen name="firsttitle_card">20sp</dimen>
     <dimen name="date_card">10sp</dimen>
     <dimen name="secondstitle_Card">10sp</dimen>
-    <dimen name="prind_mgtop_card">10dp</dimen>
+    <dimen name="prind_mgtop_card">10sp</dimen>
     <!--medidas para las bootombar-->
-    <dimen name="firstheight_bottombar">70dp</dimen>
+    <dimen name="firstheight_bottombar">70sp</dimen>
     <dimen name="fab_margin">5sp</dimen>
 
     <!-- <dimen name="padding_horizontal_loggin">52dp</dimen>-->

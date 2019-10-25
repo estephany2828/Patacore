@@ -10,7 +10,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        tools:targetApi="lollipop"></Toolbar>
+        android:title="@string/title_toolbar"
+        tools:targetApi="lollipop"
+        android:theme="@style/Theme.AppCompat.Light"></Toolbar>
 
 </com.google.android.material.appbar.AppBarLayout>

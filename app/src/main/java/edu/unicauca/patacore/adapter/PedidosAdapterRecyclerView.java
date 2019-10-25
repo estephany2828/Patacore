@@ -22,18 +22,19 @@ import edu.unicauca.patacore.model.Pedidos;
 public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdapterRecyclerView.PedidosAViewHolder>{
 
 
-
-    private ArrayList<Pedidos> pedidos;
-
-    public PedidosAdapterRecyclerView(ArrayList<Pedidos> pedidos, int resource, Activity activity) {
-        this.pedidos = pedidos;
+    public PedidosAdapterRecyclerView(ArrayList<Pedidos> pedidosArrayList, int resource, Activity activity) {
+        this.pedidosArrayList = pedidosArrayList;
         this.resource = resource;
         this.activity = activity;
     }
 
-    private String[] mDataset;
-    private int resource; //el card view
+    private ArrayList<Pedidos> pedidosArrayList;
+    private int resource;
     private Activity activity;
+
+    /*public PedidosAdapterRecyclerView(ArrayList<Pedidos> buildLista, int cardview_menu, FragmentActivity activity) {
+
+    }*/
 
 
     @NonNull
@@ -47,10 +48,15 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
     public void onBindViewHolder(@NonNull PedidosAViewHolder holder, int position) {
         //TODA LA LISTA DE ELEMENTOS
 
+       Pedidos pedido = pedidosArrayList.get(position);
+       holder.textNameCard.setText(pedido.getTextNameCard());
+       holder.textDateCard.setText(pedido.getTextDateCard());
+       holder.textDateActCard.setText(pedido.getTextDateActCard());
 
-        holder.textNameCard.setText(position);
-        holder.textDateCard.setText(position);
-        holder.textDateActCard.setText(position);
+
+
+
+
 
 
     }
@@ -58,24 +64,30 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
     @Override
     public int getItemCount() {
 
-        return  pedidos.size();
+        return  pedidosArrayList.size();
     }
 
     public class PedidosAViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textNameCard;
-        private ImageView iconCard;
-        private TextView textDateCard;
-        private TextView textDateActCard;
+
+        public Pedidos pedidos;
+        TextView textNameCard;
+        TextView textDateCard;
+        TextView textDateActCard;
+        ImageView imgCard;
 
         //TODOS LOS VIEW QUE COMPONEN A LA CARD
         public PedidosAViewHolder(@NonNull View itemView) {
             super(itemView);
-            iconCard = itemView.findViewById(R.id.iconCard);
+            imgCard = itemView.findViewById(R.id.imgCard);
             textNameCard = itemView.findViewById(R.id.textNameCard);
             textDateCard = itemView.findViewById(R.id.textDateCard);
             textDateActCard = itemView.findViewById(R.id.textDatActCard);
 
         }
+
+
+
+
     }
 }

@@ -23,4 +23,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nueva_orden_fragment">Nueva orden</string>
+    <string name="title_toolbar">PATACORE</string>
 </resources>

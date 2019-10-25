@@ -2,79 +2,100 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:cardview="http://schemas.android.com/tools"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_margin="20dp"
+    android:padding="20dp"
     android:layout_width="match_parent"
     android:layout_height="@dimen/prin_list_pedidos"
-    android:id="@+id/list_pedidos">
+    android:id="@+id/menuCard">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/prind_mgtop_card"
-        android:background="@color/colorSecondary">
+        android:background="@color/colorSecondary"
+        app:layout_constraintEnd_toStartOf="@+id/textDatActCard"
+        app:layout_constraintStart_toStartOf="@+id/textDatActCard">
 
         <ImageView
-            android:id="@+id/iconCard"
-            android:layout_width="127dp"
-            android:layout_height="91dp"
+            android:id="@+id/imgCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/sarten"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textNameCard"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.297"
-            app:srcCompat="@drawable/macet"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintTop_toTopOf="@+id/textNameCard"
+            app:layout_constraintVertical_bias="0.294"
+            cardview:layout_constraintBottom_toBottomOf="parent"
+            cardview:layout_constraintStart_toStartOf="parent"
+            cardview:layout_constraintTop_toTopOf="@+id/textNameCard"
+            cardview:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textNameCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="112dp"
+            android:layout_marginRight="112dp"
             android:text="@string/textname_card"
             android:textColor="@color/colorBG"
             android:textSize="@dimen/firsttitle_card"
-            app:layout_constraintBottom_toTopOf="@+id/textDateCard"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="MissingConstraints" />
+            cardview:layout_constraintBottom_toTopOf="@+id/textDateCard"
+            cardview:layout_constraintEnd_toEndOf="parent"
+            cardview:layout_constraintHorizontal_bias="0.878"
+            cardview:layout_constraintStart_toEndOf="@+id/iconCard"
+            cardview:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textDateCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="11dp"
             android:text="@string/textdate_card"
             android:textColor="@color/colorBG"
             android:textSize="@dimen/secondstitle_Card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgCard"
             app:layout_constraintStart_toStartOf="@+id/textNameCard"
             app:layout_constraintTop_toBottomOf="@+id/textNameCard"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintVertical_bias="0.0"
+            cardview:layout_constraintBottom_toBottomOf="parent"
+            cardview:layout_constraintStart_toStartOf="@+id/textNameCard"
+            cardview:layout_constraintTop_toBottomOf="@+id/textNameCard" />
 
         <TextView
             android:id="@+id/textDatActCard"
             android:layout_width="wrap_content"
             android:layout_height="12dp"
-            android:layout_marginStart="110dp"
-            android:layout_marginLeft="110dp"
-            android:layout_marginEnd="116dp"
-            android:layout_marginRight="116dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/textdatact_card"
+
             android:textColor="@color/colorBG"
             android:textSize="@dimen/date_card"
             app:layout_constraintBottom_toBottomOf="@+id/textDateCard"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/textDateCard"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintStart_toEndOf="@+id/textDateCard"
+            app:layout_constraintTop_toTopOf="@+id/textDateCard"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            cardview:layout_editor_absoluteY="90dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
