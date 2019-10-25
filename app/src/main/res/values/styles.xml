@@ -6,26 +6,25 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-        <!--Tolbar-->
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
     <!-- estilo del boton del login. -->
     <style name="ButtonDarkLogin" parent="Theme.AppCompat.Light">
-        <item name="colorButtonNormal">@color/colorPrimaryDark</item>
-        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="colorButtonNormal">@color/colorPrimaryLight</item>
+        <item name="colorControlHighlight">@color/PrimaryLightHighlight</item>
         <item name="android:textColor">@color/colorSecondary</item>
     </style>
     <!-- Customize your theme here. -->
     <style name="EditTextLogin" parent="Theme.AppCompat.Light">
-        <item name="android:textColorHint"></item>
-
-        <item name="android:textSize">@dimen/activity_horizontal_margin</item>
-        <item name="android:textColorPrimary"></item>
-        <item name="colorAccent"></item>
-        <item name="colorControlNormal"></item>
-        <item name="colorControlActivated"></item>
+        <item name="colorControlNormal">@color/colorBG</item>
+        <item name="android:textColorHint">@color/colorBG</item>
+        <item name="colorControlActivated">@color/colorPrimaryLight</item>
+        <item name="colorControlHighlight">@color/PrimaryLightHighlight</item>
+        <item name="android:textColor">@color/colorPrimaryLight</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryLight</item>
+    </style>
+    <!--Color icono login-->
+    <style name="IconLoginColor" parent="Theme.AppCompat.Light">
+        <item name="android:tint">@color/colorSecondary</item>
     </style>
     <!-- Estilo black menu. -->
     <style name="EditTextBlack" parent="Theme.AppCompat.Light">
