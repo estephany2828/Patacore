@@ -1,4 +1,4 @@
-package edu.unicauca.patacore;
+package edu.unicauca.patacore.model;
 
 public class Producto {
     private int codigo;
