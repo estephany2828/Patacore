@@ -6,7 +6,6 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/borderLogin"
     android:background="@color/colorBG"
     tools:context=".view.LoginActivity">
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -139,6 +138,7 @@
                     android:layout_margin="@dimen/activity_vertical_margin"
                     android:text="@string/title_activity_login"
                     android:theme="@style/ButtonDarkLogin"
+                    android:onClick="goMenuPrincipal"
                     app:layout_constraintTop_toBottomOf="@+id/gPwrd"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -153,7 +153,8 @@
                     android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/login">
+                    app:layout_constraintTop_toBottomOf="@id/login"
+                   >
 
                 </ProgressBar>
 

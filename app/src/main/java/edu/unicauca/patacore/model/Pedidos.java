@@ -6,7 +6,6 @@ import android.widget.ImageView;
 
 public class Pedidos {
     private int imgCard;
-    private String textNameCard;
     private String textDateCard;
     private String textDateActCard;
 
@@ -19,13 +18,9 @@ public class Pedidos {
         this.imgCard = imgCard;
     }
 
-    public String getTextNameCard() {
-        return textNameCard;
-    }
 
-    public void setTextNameCard(String textNameCard) {
-        this.textNameCard = textNameCard;
-    }
+
+
 
     public String getTextDateCard() {
         return textDateCard;
@@ -45,7 +40,6 @@ public class Pedidos {
 
     public Pedidos(int imgCard, String textNameCard, String textDateCard, String textDateActCard) {
         this.imgCard = imgCard;
-        this.textNameCard = textNameCard;
         this.textDateCard = textDateCard;
         this.textDateActCard = textDateActCard;
     }

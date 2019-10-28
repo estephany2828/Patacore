@@ -26,7 +26,8 @@ public class ContainerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_container);
         BottomNavigationView bottombar = findViewById(R.id.bottombar);
-//        bottombar.setSelectedItemId(R.id.newTab); //default
+
+
 
 
         bottombar.setOnNavigationItemSelectedListener(
@@ -54,6 +55,7 @@ public class ContainerActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+        bottombar.setSelectedItemId(R.id.newTab);
 
     }
 

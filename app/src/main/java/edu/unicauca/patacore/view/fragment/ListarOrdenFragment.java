@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import androidx.annotation.RequiresApi;
@@ -37,7 +38,7 @@ public class ListarOrdenFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+      /*  // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_listar_orden, container, false);
 
         RecyclerView pedidosRecycler =view.findViewById(R.id.menuRecycler);
@@ -49,11 +50,10 @@ public class ListarOrdenFragment extends Fragment {
         pedidosRecycler.setAdapter(pedidosAdapterRecyclerView);
         //TOLBAR
 
-        return view;
-
-
+        return view;*/
+        return inflater.inflate(R.layout.fragment_add_orden, container, false);
     }
-    public ArrayList<Pedidos> buildLista(){
+  /*  public ArrayList<Pedidos> buildLista(){
         ArrayList <Pedidos> pedidos= new ArrayList<>();
 
 
@@ -61,7 +61,7 @@ public class ListarOrdenFragment extends Fragment {
         pedidos.add(new Pedidos( R.drawable.temp, "Listo para Servir", "10/20/2019", "24/04/2019"));
         pedidos.add(new Pedidos( R.drawable.panadero, "Pedido servido", "10/20/2019", "24/04/2019"));
         return pedidos;
-    }
+    }*/
 
 
     public void Toolbar(String title, boolean upBotton, View view){

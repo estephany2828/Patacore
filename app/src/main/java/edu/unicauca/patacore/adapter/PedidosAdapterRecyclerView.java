@@ -49,7 +49,6 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
         //TODA LA LISTA DE ELEMENTOS
 
        Pedidos pedido = pedidosArrayList.get(position);
-       holder.textNameCard.setText(pedido.getTextNameCard());
        holder.textDateCard.setText(pedido.getTextDateCard());
        holder.textDateActCard.setText(pedido.getTextDateActCard());
 
@@ -71,7 +70,6 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
 
 
         public Pedidos pedidos;
-        TextView textNameCard;
         TextView textDateCard;
         TextView textDateActCard;
         ImageView imgCard;
@@ -79,8 +77,7 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
         //TODOS LOS VIEW QUE COMPONEN A LA CARD
         public PedidosAViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgCard = itemView.findViewById(R.id.imgCard);
-            textNameCard = itemView.findViewById(R.id.textNameCard);
+            imgCard = itemView.findViewById(R.id.img_card);
             textDateCard = itemView.findViewById(R.id.textDateCard);
             textDateActCard = itemView.findViewById(R.id.textDatActCard);
 
