@@ -5,46 +5,40 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 public class Pedidos {
-    private int imgCard;
-    private String textDateCard;
-    private String textDateActCard;
+    private String imgCard;
+    private String txtNombre;
+    private String txtPrecio;
 
 
-    public int getImgCard() {
+    public String getImgCard() {
         return imgCard;
     }
 
-    public void setImgCard(int imgCard) {
+    public void setImgCard(String imgCard) {
         this.imgCard = imgCard;
     }
 
 
-
-
-
-    public String getTextDateCard() {
-        return textDateCard;
+    public String getTxtNombre() {
+        return txtNombre;
     }
 
-    public void setTextDateCard(String textDateCard) {
-        this.textDateCard = textDateCard;
+    public void setTxtNombre(String txtNombre) {
+        this.txtNombre = txtNombre;
     }
 
-    public String getTextDateActCard() {
-        return textDateActCard;
+    public String getTxtPrecio() {
+        return txtPrecio;
     }
 
-    public void setTextDateActCard(String textDateActCard) {
-        this.textDateActCard = textDateActCard;
+    public void setTxtPrecio(String txtPrecio) {
+        this.txtPrecio = txtPrecio;
     }
 
-    public Pedidos(int imgCard, String textNameCard, String textDateCard, String textDateActCard) {
+    public Pedidos( String imgCard, String txtNombre, String txtPrecio) {
         this.imgCard = imgCard;
-        this.textDateCard = textDateCard;
-        this.textDateActCard = textDateActCard;
+        this.txtNombre = txtNombre;
+        this.txtPrecio = txtPrecio;
     }
-
-
-
 }
 

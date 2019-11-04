@@ -2,12 +2,13 @@ package edu.unicauca.patacore;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.icu.text.CaseMap;
 import android.os.Build;
 import android.os.Bundle;
-import android.widget.Toolbar;
+
 
 import edu.unicauca.patacore.R;
 
