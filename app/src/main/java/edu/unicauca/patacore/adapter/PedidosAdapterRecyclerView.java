@@ -48,12 +48,13 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PedidosAViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PedidosAViewHolder holder, final int position) {
         //TODA LA LISTA DE ELEMENTOS
 
        Pedidos pedido = pedidosArrayList.get(position);
        holder.txtNombre.setText(pedido.getTxtNombre());
        holder.txtPrecio.setText(pedido.getTxtPrecio());
+      // holder.img_card_list.setImageResource(pedidosArrayList.get(position).getImg());
        Picasso.with(activity)
                .load(pedido.getImgCard())
                .resize(120, 120)
@@ -64,6 +65,9 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
            @Override
            public void onClick(View view) {
                Intent intent = new Intent(activity, PedidoDetalleActivity.class);
+               intent.putExtra("nombre", pedidosArrayList.get(position).getTxtNombre());
+               intent.putExtra("precio", pedidosArrayList.get(position).getTxtPrecio());
+
                activity.startActivity(intent);
 
            }

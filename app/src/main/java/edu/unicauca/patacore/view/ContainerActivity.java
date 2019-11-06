@@ -19,6 +19,8 @@ import edu.unicauca.patacore.R;
 import edu.unicauca.patacore.view.fragment.AddOrdenFragment;
 import edu.unicauca.patacore.view.fragment.DelOrdenFragment;
 import edu.unicauca.patacore.view.fragment.ListarOrdenFragment;
+import edu.unicauca.patacore.view.fragment.MenuFragment;
+import edu.unicauca.patacore.view.fragment.MesaFragment;
 import edu.unicauca.patacore.view.fragment.NewOrdenFragment;
 
 public class ContainerActivity extends AppCompatActivity {
@@ -39,14 +41,14 @@ public class ContainerActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                         int item =menuItem.getItemId();
                         switch (item) {
-                            case R.id.newTab:
-                                addFragment(new NewOrdenFragment());
+                            case R.id.menuTab:
+                                addFragment(new MenuFragment());
+                                break;
+                            case R.id.pedidoTab:
+                                addFragment(new MesaFragment());
                                 break;
                             case R.id.listarTab:
                                 addFragment(new ListarOrdenFragment());
-                                break;
-                            case R.id.adiccionarTab:
-                                addFragment(new AddOrdenFragment());
                                 break;
                             case R.id.delTab:
                                 addFragment(new DelOrdenFragment());
@@ -56,7 +58,7 @@ public class ContainerActivity extends AppCompatActivity {
                         return true;
                     }
                 });
-        bottombar.setSelectedItemId(R.id.newTab);
+        bottombar.setSelectedItemId(R.id.menuTab);
 
     }
 

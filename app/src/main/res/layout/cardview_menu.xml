@@ -37,11 +37,13 @@
                 android:gravity="center"
                 cardview:ignore="RtlCompat" />
             <TextView
+                android:id="@+id/txtNombre"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/txt_nombre"
                 android:textColor="@color/colorBG"/>
             <TextView
+                android:id="@+id/txtPrecio"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/txt_precio"

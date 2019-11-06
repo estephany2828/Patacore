@@ -19,10 +19,10 @@
        <include layout="@layout/actionbar_list_estado"></include>
 
       <androidx.recyclerview.widget.RecyclerView
-          android:id="@+id/menuRecycler"
+          android:id="@+id/menuListRecycler"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          tools:listitem="@layout/cardview_menu"
+          tools:listitem="@layout/cardview_list"
          >
 
       </androidx.recyclerview.widget.RecyclerView>
@@ -39,7 +39,6 @@
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:orientation="vertical">
-       <include layout="@layout/actionbar_toolbar"></include>
 
       <androidx.recyclerview.widget.RecyclerView
           android:id="@+id/menuRecycler"
