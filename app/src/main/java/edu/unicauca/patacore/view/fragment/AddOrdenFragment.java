@@ -1,6 +1,7 @@
 package edu.unicauca.patacore.view.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -30,6 +31,7 @@ public class AddOrdenFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @SuppressLint("WrongConstant")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

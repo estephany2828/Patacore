@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
         <item
-            android:id="@+id/newTab"
-            android:title="@string/tab_new"
-            android:icon="@drawable/ic_listar"
-            />
+           android:id="@+id/menuTab"
+           android:title="@string/tab_menu"
+           android:icon="@drawable/ic_listar"
+           />
+       <item
+           android:id="@+id/pedidoTab"
+           android:title="@string/tab_pedido"
+           android:icon="@drawable/ic_add"
+           />
+
 
         <item
             android:id="@+id/listarTab"
             android:title="@string/tab_listar"
             android:icon="@drawable/ic_listar"
-
-            />
-        <item
-            android:id="@+id/adiccionarTab"
-            android:title="@string/tab_add"
-            android:icon="@drawable/ic_add"
             />
 
         <item
@@ -27,3 +27,14 @@
             />
 
 </menu>
+
+    <!--  <item
+               android:id="@+id/newTab"
+               android:title="@string/tab_new"
+               android:icon="@drawable/ic_listar"
+               />
+           <item
+               android:id="@+id/adiccionarTab"
+               android:title="@string/tab_add"
+               android:icon="@drawable/ic_add"
+               />-->

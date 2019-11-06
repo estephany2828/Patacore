@@ -2,16 +2,17 @@
 
 <com.google.android.material.appbar.AppBarLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="60dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <Toolbar
+
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:title="@string/title_toolbar"
-        tools:targetApi="lollipop"
-        android:theme="@style/Theme.AppCompat.Light"></Toolbar>
+        android:layout_height="match_parent"
+        app:title="@string/title_toolbar"
+        android:background="@color/colorPrimary"/>
 
 </com.google.android.material.appbar.AppBarLayout>
+

@@ -1,11 +1,13 @@
 package edu.unicauca.patacore.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Picture;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,11 +15,14 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.text.CollationElementIterator;
 import java.util.ArrayList;
 
 import edu.unicauca.patacore.R;
 import edu.unicauca.patacore.model.Pedidos;
+import edu.unicauca.patacore.view.PedidoDetalleActivity;
 
 public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdapterRecyclerView.PedidosAViewHolder>{
 
@@ -32,9 +37,7 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
     private int resource;
     private Activity activity;
 
-    /*public PedidosAdapterRecyclerView(ArrayList<Pedidos> buildLista, int cardview_menu, FragmentActivity activity) {
 
-    }*/
 
 
     @NonNull
@@ -45,19 +48,37 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PedidosAViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PedidosAViewHolder holder, final int position) {
         //TODA LA LISTA DE ELEMENTOS
 
        Pedidos pedido = pedidosArrayList.get(position);
-       holder.textNameCard.setText(pedido.getTextNameCard());
-       holder.textDateCard.setText(pedido.getTextDateCard());
-       holder.textDateActCard.setText(pedido.getTextDateActCard());
+
+       holder.txtNombre.setText(pedido.getTxtNombre());
+       holder.txtPrecio.setText(pedido.getTxtPrecio());
+      // holder.img_card_list.setImageResource(pedidosArrayList.get(position).getImg());
+       Picasso.with(activity)
+               .load(pedido.getImgCard())
+               .resize(120, 120)
+               .placeholder(R.drawable.panadero)
+               .error(R.drawable.panadero)
+               .into(holder.img_card_list);
+       holder.btnPrep.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(activity, PedidoDetalleActivity.class);
+               intent.putExtra("nombre", pedidosArrayList.get(position).getTxtNombre());
+               intent.putExtra("precio", pedidosArrayList.get(position).getTxtPrecio());
+
+               activity.startActivity(intent);
+
+           }
+       });
+
 
     }
 
     @Override
     public int getItemCount() {
-
         return  pedidosArrayList.size();
     }
 
@@ -65,18 +86,19 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
 
 
         public Pedidos pedidos;
-        TextView textNameCard;
-        TextView textDateCard;
-        TextView textDateActCard;
-        ImageView imgCard;
+        TextView txtNombre;
+        TextView txtPrecio;
+        ImageView img_card_list;
+        Button btnPrep;
+
 
         //TODOS LOS VIEW QUE COMPONEN A LA CARD
         public PedidosAViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgCard = itemView.findViewById(R.id.imgCard);
-            textNameCard = itemView.findViewById(R.id.textNameCard);
-            textDateCard = itemView.findViewById(R.id.textDateCard);
-            textDateActCard = itemView.findViewById(R.id.textDatActCard);
+            btnPrep = itemView.findViewById(R.id.btnPrep);
+            img_card_list = itemView.findViewById(R.id.img_card_list);
+            txtNombre = itemView.findViewById(R.id.txtNombre);
+            txtPrecio = itemView.findViewById(R.id.txtPrecio);
 
         }
 

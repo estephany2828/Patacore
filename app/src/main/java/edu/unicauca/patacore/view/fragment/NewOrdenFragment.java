@@ -1,6 +1,7 @@
 package edu.unicauca.patacore.view.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -32,29 +33,30 @@ public class NewOrdenFragment extends Fragment {
     }
 
 
-   @Override
-   public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                            Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-       View view = inflater.inflate(R.layout.fragment_new_orden, container, false);
+    @SuppressLint("WrongConstant")
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_new_orden, container, false);
 
-       recyclerProductos = view.findViewById(R.id.recyclerProductos);
+        recyclerProductos = view.findViewById(R.id.recyclerProductos);
 
-       LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-       linearLayoutManager.setOrientation(linearLayoutManager.VERTICAL);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(linearLayoutManager.VERTICAL);
 
-       recyclerProductos.setLayoutManager(linearLayoutManager);
+        recyclerProductos.setLayoutManager(linearLayoutManager);
 
-       llenarProductos ();
+        llenarProductos ();
 
-       adapter = new PedidosNewAdapterRecycler(listaProductos);
-       recyclerProductos.setAdapter(adapter);
+        adapter = new PedidosNewAdapterRecycler(listaProductos);
+        recyclerProductos.setAdapter(adapter);
 
 
 
-       // Inflate the layout for this fragment
-       return view;
-   }
+        // Inflate the layout for this fragment
+        return view;
+    }
 
 
     private void llenarProductos (){

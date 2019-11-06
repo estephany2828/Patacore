@@ -1,6 +1,7 @@
 package edu.unicauca.patacore.view.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -29,6 +30,7 @@ public class DelOrdenFragment extends Fragment {
     }
 
 
+    @SuppressLint("WrongConstant")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,9 +53,9 @@ public class DelOrdenFragment extends Fragment {
     public ArrayList<Pedidos> buildLista(){
         ArrayList <Pedidos> pedidos= new ArrayList<>();
 
-        pedidos.add(new Pedidos( R.drawable.macet,"Pedido en preparacion", "10/20/2019", "24/04/2019"));
-        pedidos.add(new Pedidos( R.drawable.temp, "Pedido en preparación", "10/20/2019", "24/04/2019"));
-        pedidos.add(new Pedidos( R.drawable.panadero, "Pedido en preparación", "10/20/2019", "24/04/2019"));
+        pedidos.add(new Pedidos( "https://image.freepik.com/foto-gratis/plato-pechuga-pollo_1205-4244.jpg","Pedido en preparacion", "10/20/2019"));
+        pedidos.add(new Pedidos( "https://image.freepik.com/foto-gratis/plato-pechuga-pollo_1205-4244.jpg", "Pedido en preparación", "10/20/2019"));
+        pedidos.add(new Pedidos( "https://image.freepik.com/foto-gratis/plato-pechuga-pollo_1205-4244.jpg", "Pedido en preparación", "10/20/2019"));
         return pedidos;
     }
 

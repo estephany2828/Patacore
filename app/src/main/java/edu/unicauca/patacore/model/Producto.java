@@ -9,7 +9,7 @@ public class Producto {
     private int imagen;
 
 
-    public Producto(int codigo, String nombre, String descripcion, int cantidad, int imagen) {
+    public Producto(int codigo, String nombre, String descripcion, int cantidad, int image) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
