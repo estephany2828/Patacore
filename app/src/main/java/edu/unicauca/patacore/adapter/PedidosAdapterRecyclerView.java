@@ -73,8 +73,6 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
            }
        });
 
-
-
     }
 
     @Override
