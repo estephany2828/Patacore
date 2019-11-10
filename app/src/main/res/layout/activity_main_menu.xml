@@ -15,6 +15,7 @@
     android:fitsSystemWindows="true">
 
     <include layout="@layout/actionbar_toolbar"></include>
+    <include layout="@layout/bottombar"></include>
 
 <ScrollView
     android:layout_width="match_parent"
