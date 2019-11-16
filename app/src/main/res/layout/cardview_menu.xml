@@ -16,7 +16,7 @@
         android:orientation="horizontal"
         android:background="@color/colorSecondary">
         <ImageView
-            android:id="@+id/img_card_list"
+            android:id="@+id/img_card_menu"
             android:layout_width="@dimen/img_card_list"
             android:layout_height="@dimen/img_card_list"
             android:background="@drawable/macet"

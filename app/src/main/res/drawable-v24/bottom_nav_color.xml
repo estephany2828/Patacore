@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/macet" android:state_checked="true"/>
-    <item android:drawable="@drawable/panadero" android:state_checked="false"/>
 
     <!--<item android:drawable="@drawable/temp" />-->
+    <item android:state_checked="true" android:drawable="@drawable/macet" />
+    <item android:state_checked="false" android:drawable="@drawable/panadero" />
 </selector>

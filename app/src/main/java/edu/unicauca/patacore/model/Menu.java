@@ -1,23 +1,24 @@
 package edu.unicauca.patacore.model;
 
 public class Menu {
-
-    private String imgCard;
+    private int id;
     private String txtNombre;
     private String txtPrecio;
+    private byte[] image;
 
-    public Menu(String imgCard, String txtNombre, String txtPrecio) {
-        this.imgCard = imgCard;
+    public Menu(int id, String txtNombre, String txtPrecio, byte[] image) {
+        this.id = id;
         this.txtNombre = txtNombre;
         this.txtPrecio = txtPrecio;
+        this.image = image;
     }
 
-    public String getImgCard() {
-        return imgCard;
+    public int getId() {
+        return id;
     }
 
-    public void setImgCard(String imgCard) {
-        this.imgCard = imgCard;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTxtNombre() {
@@ -34,5 +35,13 @@ public class Menu {
 
     public void setTxtPrecio(String txtPrecio) {
         this.txtPrecio = txtPrecio;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

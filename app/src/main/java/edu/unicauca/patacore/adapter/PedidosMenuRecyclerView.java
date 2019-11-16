@@ -2,6 +2,8 @@ package edu.unicauca.patacore.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,12 +46,15 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
         Menu menu = menuArrayList.get(position);
         holder.txtNombre.setText(menu.getTxtNombre());
         holder.txtPrecio.setText(menu.getTxtPrecio());
-        Picasso.with(activity)
+        byte[] foodImage = menu.getImage();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
+        holder.img_card_menu.setImageBitmap(bitmap);
+        /*Picasso.with(activity)
                 .load(menu.getImgCard())
                 .resize(120, 120)
                 .placeholder(R.drawable.panadero)
                 .error(R.drawable.panadero)
-                .into(holder.img_card_list);
+                .into(holder.img_card_list);*/
 
 
     }
@@ -64,15 +69,15 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
         public Menu menu;
         TextView txtNombre;
         TextView txtPrecio;
-        ImageView img_card_list;
+        ImageView img_card_menu;
 
 
 
         //TODOS LOS VIEW QUE COMPONEN A LA CARD
         public PedidosAViewHolder(@NonNull View itemView) {
-            super(itemView);
 
-            img_card_list = itemView.findViewById(R.id.img_card_list);
+            super(itemView);
+            img_card_menu = itemView.findViewById(R.id.img_card_menu);
             txtNombre = itemView.findViewById(R.id.txtNombre);
             txtPrecio = itemView.findViewById(R.id.txtPrecio);
 
