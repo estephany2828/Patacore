@@ -51,6 +51,7 @@ public class MesaAdapterRecyclerView extends RecyclerView.Adapter<MesaAdapterRec
                 .placeholder(R.drawable.panadero)
                 .error(R.drawable.panadero)
                 .into(holder.imgCardMesa);
+
         holder.imgCardMesa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

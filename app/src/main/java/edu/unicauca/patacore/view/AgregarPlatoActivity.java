@@ -8,6 +8,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -25,13 +26,17 @@ import java.io.InputStream;
 
 import edu.unicauca.patacore.R;
 import edu.unicauca.patacore.data.db.SQLiteFood;
+import edu.unicauca.patacore.model.Menu;
+import edu.unicauca.patacore.view.fragment.MenuFragment;
 
 public class AgregarPlatoActivity extends AppCompatActivity {
     EditText editTxtNombre, editTxtPrecio;
     Button btnAdd, btnDirMenu, btnBuscar;
     ImageView imageView;
-    public static SQLiteFood sqLiteFood;
+    //public static SQLiteFood sqLiteFood;
     final int REQUEST_CODE_GALLERY=999;
+    private SQLiteFood sqLiteFood; // class that extends SQLiteOpenHelper
+    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +44,11 @@ public class AgregarPlatoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_agregar_plato);
         //variables
         init();
-       sqLiteFood = new SQLiteFood(this, "FoodDB.sqlite", null, 1);
-        //crea la tabla food
-        sqLiteFood.queryData("CREATE TABLE IF NOT EXISTS FOOD(id_food INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, price VARCHAR, image BLOG)");
+        //listen to add button
+        sqLiteFood = new SQLiteFood(this);
+        db= sqLiteFood.getWritableDatabase();
+
+        //sqLiteFood.queryData("CREATE TABLE IF NOT EXISTS FOOD(id_food INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, price VARCHAR, image BLOG)");
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,25 +62,39 @@ public class AgregarPlatoActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    sqLiteFood.insertData(
-                            editTxtNombre.getText().toString().trim(),
-                            editTxtPrecio.getText().toString().trim(),
-                            imageViewToByte(imageView)
-                    );
-                    Toast.makeText(getApplicationContext(), "Agregar plato", Toast.LENGTH_SHORT).show();
-                    editTxtNombre.setText("");
-                    editTxtPrecio.setText("");
-                    imageView.setImageResource(R.mipmap.ic_launcher);
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-
-                }
+                agregar();
             }
         });
 
     }
+
+
+    public void agregar(){
+
+        try {
+            sqLiteFood.insertData(
+                    editTxtNombre.getText().toString().trim(),
+                    editTxtPrecio.getText().toString().trim(),
+                    imageViewToByte(imageView)
+            );
+            Toast.makeText(getApplicationContext(), "Agregar plato", Toast.LENGTH_SHORT).show();
+            editTxtNombre.setText("");
+            editTxtPrecio.setText("");
+            imageView.setImageResource(R.mipmap.ic_launcher);
+            goBackMenu();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+    private void goBackMenu() {
+        Intent intent= new Intent(AgregarPlatoActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -131,4 +152,43 @@ public class AgregarPlatoActivity extends AppCompatActivity {
 }
 
 /*
-}*/
+
+    private void saveMenuFood() {
+        String name = editTxtNombre.getText().toString().trim();
+        String price = editTxtPrecio.getText().toString().trim();
+        byte[] image= imageViewToByte(imageView);
+
+
+
+        //create new person
+        Menu menu = new Menu(name, price, image);
+        sqLiteFood.saveNewMenuFood(menu);
+
+        //finally redirect back home
+        // NOTE you can implement an sqlite callback then redirect on success delete
+        goBackMenu();
+
+    }
+//sqLiteFood = new SQLiteFood(this, "FoodDB.sqlite", null, 1);
+        //crea la tabla food
+        sqLiteFood.queryData("CREATE TABLE IF NOT EXISTS FOOD(id_food INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, price VARCHAR, image BLOG)");
+
+lo que estaba en el botton agregar
+try {
+                    sqLiteFood.insertData(
+                            editTxtNombre.getText().toString().trim(),
+                            editTxtPrecio.getText().toString().trim(),
+
+                            imageViewToByte(imageView)
+                    );
+                    Toast.makeText(getApplicationContext(), "Agregar plato", Toast.LENGTH_SHORT).show();
+                    editTxtNombre.setText("");
+                    editTxtPrecio.setText("");
+                    imageView.setImageResource(R.mipmap.ic_launcher);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                }
+
+*/
