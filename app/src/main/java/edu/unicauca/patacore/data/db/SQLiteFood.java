@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -30,6 +31,7 @@ public class SQLiteFood extends SQLiteOpenHelper {
 
 
     public SQLiteFood(Context context){
+
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -40,7 +42,10 @@ public class SQLiteFood extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         //SQLiteDatabase database = getWritableDatabase();
+        //sqLiteDatabase.execSQL(BDMenu.DELETE_TABLA_MENU);
+        //sqLiteDatabase.execSQL(BDMenu.DELETE_TABLA_MEN);
         sqLiteDatabase.execSQL(BDMenu.CREATE_TABLE_FOOD);
+
         //CREAR PEDIDO
 
     }
@@ -48,6 +53,10 @@ public class SQLiteFood extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(BDMenu.DELETE_TABLA_MENU);
+       /* String query;
+        query = "DROP TABLE IF EXISTS profiles";
+        database.execSQL(query);*/
+        onCreate(sqLiteDatabase);
 
 
     }
@@ -65,7 +74,8 @@ public class SQLiteFood extends SQLiteOpenHelper {
     }
     public void insertData(String name, String price, byte[] imagePlato){
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO Food VALUES (NULL, ?, ?, ?)";
+        String sql = "INSERT INTO FOOD VALUES (NULL, ?, ?, ?)";
+        //String sql = "INSERT INTO FOOD VALUES (NULL, ?, ?, ?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
         statement.bindString(1, name);
@@ -80,6 +90,34 @@ public class SQLiteFood extends SQLiteOpenHelper {
         database.execSQL(sql);
 
     }
+    //CON ARRAYLIST
+
+    public ArrayList<Menu> buildListas() {
+        ArrayList<Menu> menuArrayList = new ArrayList<>();
+
+        String query = "SELECT * FROM  FOOD";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        Menu menu;
+
+            if (cursor.moveToFirst()) {
+                do {
+                    menu = new Menu();
+
+                    menu.setId(cursor.getInt(cursor.getColumnIndex(BDMenu.COLUMN_ID)));
+                    menu.setTxtNombre(cursor.getString(cursor.getColumnIndex(BDMenu.COLUMN_FOOD_NAME)));
+                    menu.setTxtPrecio(cursor.getString(cursor.getColumnIndex(BDMenu.COLUMN_FOOD_PRICE)));
+                    menu.setImage(cursor.getBlob(cursor.getColumnIndex(BDMenu.COLUMN_FOOD_IMAGE)));
+                    menuArrayList.add(menu);
+                } while (cursor.moveToNext());
+            }
+
+
+        //db.close();
+        
+        return menuArrayList;
+    }
+
     /**Query only 1 record**/
     public List<Menu> menuList(String filter) {
         String query;

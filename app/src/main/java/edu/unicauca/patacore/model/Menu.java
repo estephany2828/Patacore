@@ -5,7 +5,7 @@ public class Menu {
     private int id;
     private String txtNombre;
     private String txtPrecio;
-    //private byte[] image;
+    private byte[] image;
     private String img;
 
     public String getImg() {
@@ -16,18 +16,19 @@ public class Menu {
         this.img = img;
     }
 
-    /*public Menu(String txtNombre, String txtPrecio, byte[] image) {
+    public Menu(String txtNombre, String txtPrecio, byte[] image) {
+        //this.id = id;
         this.txtNombre = txtNombre;
         this.txtPrecio = txtPrecio;
         this.image = image;
-    }*/
+    }
 
-    public Menu(String img, String txtNombre, String txtPrecio) {
+    /*public Menu(String img, String txtNombre, String txtPrecio) {
         this.img = img;
         this.txtNombre = txtNombre;
         this.txtPrecio = txtPrecio;
 
-    }
+    }*/
     public  Menu(){
 
     }
@@ -56,11 +57,11 @@ public class Menu {
         this.txtPrecio = txtPrecio;
     }
 
-   /* public byte[] getImage() {
+    public byte[] getImage() {
         return image;
     }
 
     public void setImage(byte[] image) {
         this.image = image;
-    }*/
+    }
 }

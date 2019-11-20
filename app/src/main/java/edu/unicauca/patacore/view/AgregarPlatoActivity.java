@@ -70,7 +70,7 @@ public class AgregarPlatoActivity extends AppCompatActivity {
 
 
     public void agregar(){
-
+        //sqLiteFood.insertData( "pollo", "5000", "https://image.freepik.com/foto-gratis/plato-pechuga-pollo_1205-4244.jpg");
         try {
             sqLiteFood.insertData(
                     editTxtNombre.getText().toString().trim(),
@@ -81,7 +81,7 @@ public class AgregarPlatoActivity extends AppCompatActivity {
             editTxtNombre.setText("");
             editTxtPrecio.setText("");
             imageView.setImageResource(R.mipmap.ic_launcher);
-            goBackMenu();
+            //goBackMenu();
 
 
         } catch (Exception e) {

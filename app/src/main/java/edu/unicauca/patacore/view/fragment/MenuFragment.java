@@ -64,21 +64,17 @@ public class MenuFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_menu, container, false);
         init(view);
         //initialize the variables
-        //sqLiteFood = new SQLiteFood(getActivity());
-        //db= sqLiteFood.getWritableDatabase();
+        SQLiteFood sqLiteFood = new SQLiteFood(getActivity());
+        SQLiteDatabase db= sqLiteFood.getWritableDatabase();
 
         RecyclerView menuRecycler =view.findViewById(R.id.menuRecycler);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(linearLayoutManager.VERTICAL);
         menuRecycler.setLayoutManager(linearLayoutManager);
         PedidosMenuRecyclerView pedidosMenuRecyclerView =
-                new PedidosMenuRecyclerView(buildLista(),R.layout.cardview_menu, getActivity());
+                new PedidosMenuRecyclerView(sqLiteFood.buildListas(),R.layout.cardview_menu, getActivity());
         menuRecycler.setAdapter(pedidosMenuRecyclerView);
-
-
-
-
-
+        pedidosMenuRecyclerView.notifyDataSetChanged();
         //TOLBAR
 
         showToolbar("Lista Pedidos", false, view);
@@ -94,14 +90,14 @@ public class MenuFragment extends Fragment {
         return view;
     }
 
-   /* private void populaterecyclerView(String filter) {
+    private void populaterecyclerView(String filter) {
 
-        sqLiteFood = new SQLiteFood(getActivity());
-       *//*adapter = new PedidosMenuRecyclerView(sqLiteFood.menuList(filter), getActivity(), mRecyclerView);
-        mRecyclerView.setAdapter(adapter);*//*
-        adapter= new PedidosMenuRecyclerView(buildLista(),R.layout.cardview_menu, getActivity());
-        mRecyclerView.setAdapter(adapter);
-    }*/
+       //SQLiteFood sqLiteFood = new SQLiteFood(getActivity());
+       //*adapter = new PedidosMenuRecyclerView(sqLiteFood.menuList(filter), getActivity(), mRecyclerView);
+        //mRecyclerView.setAdapter(adapter);*//*
+        //adapter= new PedidosMenuRecyclerView(buildLista(),R.layout.cardview_menu, getActivity());
+        //mRecyclerView.setAdapter(adapter);
+    }
 
 
 
@@ -111,7 +107,7 @@ public class MenuFragment extends Fragment {
 
     }
 
-    private ArrayList<Menu> buildLista() {
+   /* private ArrayList<Menu> buildLista() {
         ArrayList <Menu> menu= new ArrayList<>();
 
         menu.add(new Menu("https://image.freepik.com/foto-gratis/plato-pechuga-pollo_1205-4244.jpg", "pollo", "5000"  ));
@@ -121,7 +117,7 @@ public class MenuFragment extends Fragment {
         menu.add(new Menu("https://www.reinadelaselva.pe/content/img_noticia/limonada.jpg", "pollo", "5000"  ));
 
         return menu;
-    }
+    }*/
     public void showToolbar(String title, boolean upBotton, View view){
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
@@ -129,6 +125,7 @@ public class MenuFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(upBotton);
 
     }
+
 
 
 }

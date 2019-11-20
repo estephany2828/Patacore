@@ -3,7 +3,7 @@ package edu.unicauca.patacore.data.db;
 public class BDMenu {
 
     public static final String TABLE_MENU = "FOOD";
-    public static final String CREAT_TABLE = "FOOD";
+    public static final String CREAT_TABLE = "Food";
     public static final String COLUMN_ID = "id_food";
     public static final String COLUMN_FOOD_NAME = "name";
     public static final String COLUMN_FOOD_PRICE = "price";
@@ -15,12 +15,17 @@ public class BDMenu {
             COLUMN_FOOD_NAME +" VARCHAR,"+
             COLUMN_FOOD_IMAGE +"BLOB)";
 
-    public static final String CREATE_TABLE_FOOD= ("CREATE TABLE IF NOT EXISTS "+TABLE_MENU+"(id_food INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, price VARCHAR, image BLOG)");
+    public static final String CREATE_TABLE_FOOD= ("CREATE TABLE IF NOT EXISTS "+TABLE_MENU+
+            "(id_food INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, price VARCHAR, image BLOG)");
 
 
 
 
     public static final String DELETE_TABLA_MENU="DROP TABLE IF EXISTS"+ TABLE_MENU;
+    public static final String DELETE_TABLA_MEN="DROP TABLE IF EXISTS"+ CREAT_TABLE;
+    public static final String DROG="DROP TABLE IF EXISTS"+ CREAT_TABLE;
+
+
 };
 
 
