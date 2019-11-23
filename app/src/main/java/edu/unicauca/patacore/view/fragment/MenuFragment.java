@@ -72,7 +72,7 @@ public class MenuFragment extends Fragment {
         linearLayoutManager.setOrientation(linearLayoutManager.VERTICAL);
         menuRecycler.setLayoutManager(linearLayoutManager);
         PedidosMenuRecyclerView pedidosMenuRecyclerView =
-                new PedidosMenuRecyclerView(sqLiteFood.buildListas(),R.layout.cardview_menu, getActivity());
+                new PedidosMenuRecyclerView(sqLiteFood.buildListas(),getActivity(), R.layout.cardview_menu, getActivity());
         menuRecycler.setAdapter(pedidosMenuRecyclerView);
         pedidosMenuRecyclerView.notifyDataSetChanged();
         //TOLBAR

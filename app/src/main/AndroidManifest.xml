@@ -20,17 +20,13 @@
         android:roundIcon="@mipmap/appicon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.AgregarPlatoActivity">
-
-
-        </activity>
+        <activity android:name=".view.EditarPlatoActivity"></activity>
+        <activity android:name=".view.AgregarPlatoActivity"></activity>
         <activity android:name=".view.AddActivity" />
         <activity android:name=".view.PedidoDetalleActivity" />
         <activity
             android:name=".view.ContainerActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-         />
-
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".MainMenuActivity" />
         <activity
             android:name=".view.LoginActivity"
@@ -41,7 +37,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

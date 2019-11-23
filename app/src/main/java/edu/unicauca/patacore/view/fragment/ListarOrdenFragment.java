@@ -38,7 +38,6 @@ public class ListarOrdenFragment extends Fragment {
                              Bundle savedInstanceState) {
        // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_listar_orden, container, false);
-
         RecyclerView pedidosRecycler =view.findViewById(R.id.menuListRecycler);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(linearLayoutManager.VERTICAL);
@@ -48,7 +47,6 @@ public class ListarOrdenFragment extends Fragment {
         pedidosRecycler.setAdapter(pedidosAdapterRecyclerView);
         //TOLBAR
         showToolbar("Lista Pedidos", false, view);
-
         return view;
 
     }
@@ -56,7 +54,7 @@ public class ListarOrdenFragment extends Fragment {
         ArrayList <Pedidos> pedidos= new ArrayList<>();
 
 
-        pedidos.add(new Pedidos("https://www.reinadelaselva.pe/content/img_noticia/limonada.jpg", "pollo", "5000"  ));
+      pedidos.add(new Pedidos("https://www.reinadelaselva.pe/content/img_noticia/limonada.jpg", "pollo", "5000"  ));
       pedidos.add(new Pedidos("https://peru21.pe/resizer/GjiPoTh0tNBPixu-SjuZ58BFDpM=/980x528/smart/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/ZCPPKN7SHBAA7HPUJHRUGHS32U.jpg", "pollo", "5000"  ));
       pedidos.add(new Pedidos("https://cdn.pixabay.com/photo/2014/12/16/23/45/soup-570922_960_720.jpg", "pollo", "5000"  ));
       pedidos.add(new Pedidos("https://cdn.colombia.com/sdi/2011/08/02/bandeja-paisa-500927.jpg", "pollo", "5000"  ));

@@ -3,11 +3,18 @@ package edu.unicauca.patacore.model;
 public class Menu {
 
     private int id;
+
+    public Menu(String txtNombre, String txtPrecio, String img) {
+
+        this.txtNombre = txtNombre;
+        this.txtPrecio = txtPrecio;
+        this.img = img;
+    }
+
     private String txtNombre;
     private String txtPrecio;
-    private byte[] image;
     private String img;
-
+    private byte[] image;
     public String getImg() {
         return img;
     }

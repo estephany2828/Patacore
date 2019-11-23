@@ -23,6 +23,7 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import edu.unicauca.patacore.R;
 import edu.unicauca.patacore.data.db.SQLiteFood;
@@ -69,6 +70,7 @@ public class AgregarPlatoActivity extends AppCompatActivity {
     }
 
 
+
     public void agregar(){
         //sqLiteFood.insertData( "pollo", "5000", "https://image.freepik.com/foto-gratis/plato-pechuga-pollo_1205-4244.jpg");
         try {
@@ -90,6 +92,17 @@ public class AgregarPlatoActivity extends AppCompatActivity {
 
         }
     }
+      /* private ArrayList<Menu> menu() {
+        ArrayList <Menu> menu= new ArrayList<>();
+
+     menu.add(new Menu(, "pollo", "5000"  ));
+        menu.add(new Menu("https://peru21.pe/resizer/GjiPoTh0tNBPixu-SjuZ58BFDpM=/980x528/smart/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/ZCPPKN7SHBAA7HPUJHRUGHS32U.jpg", "pollo", "5000"  ));
+        menu.add(new Menu("https://cdn.pixabay.com/photo/2014/12/16/23/45/soup-570922_960_720.jpg", "pollo", "5000"  ));
+        menu.add(new Menu("https://cdn.colombia.com/sdi/2011/08/02/bandeja-paisa-500927.jpg", "pollo", "5000"  ));
+        menu.add(new Menu("https://www.reinadelaselva.pe/content/img_noticia/limonada.jpg", "pollo", "5000"  ));
+
+        return menu;
+    }*/
     private void goBackMenu() {
         Intent intent= new Intent(AgregarPlatoActivity.this, LoginActivity.class);
         startActivity(intent);

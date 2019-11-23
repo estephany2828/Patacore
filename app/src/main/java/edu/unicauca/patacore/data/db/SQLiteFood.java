@@ -22,13 +22,9 @@ import edu.unicauca.patacore.view.fragment.MenuFragment;
 public class SQLiteFood extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "foodBD.sqlite";
     public static final int DATABASE_VERSION = 1 ;
-
-
     /*public SQLiteFood(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }*/
-
-
 
     public SQLiteFood(Context context){
 
@@ -114,7 +110,7 @@ public class SQLiteFood extends SQLiteOpenHelper {
 
 
         //db.close();
-        
+
         return menuArrayList;
     }
 
@@ -169,14 +165,13 @@ public class SQLiteFood extends SQLiteOpenHelper {
     /**delete record**/
     public void deleteMenuRecord(long id, Context context) {
         SQLiteDatabase db = this.getWritableDatabase();
-
         db.execSQL("DELETE FROM "+ BDMenu.TABLE_MENU +" WHERE id_food='"+id+"'");
         Toast.makeText(context, "Deleted successfully.", Toast.LENGTH_SHORT).show();
 
     }
 
     /**update record**/
-  /*  public void updateMenuFoodRecord(long foodId, Context context, Menu updatedmenu) {
+   public void updateMenuFoodRecord(long foodId, Context context, Menu updatedmenu) {
         SQLiteDatabase db = this.getWritableDatabase();
         //you can use the constants above instead of typing the column names
         db.execSQL("UPDATE  "+ BDMenu.TABLE_MENU+" SET name ='"+ updatedmenu.getTxtNombre() + "', " +
@@ -185,7 +180,9 @@ public class SQLiteFood extends SQLiteOpenHelper {
         Toast.makeText(context, "Updated successfully.", Toast.LENGTH_SHORT).show();
 
 
-    }*/
+    }
+
+
 
 
 

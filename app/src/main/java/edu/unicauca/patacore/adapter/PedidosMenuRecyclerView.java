@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -26,6 +27,7 @@ import edu.unicauca.patacore.data.db.SQLiteFood;
 import edu.unicauca.patacore.model.Menu;
 import edu.unicauca.patacore.model.Pedidos;
 import edu.unicauca.patacore.view.AgregarPlatoActivity;
+import edu.unicauca.patacore.view.EditarPlatoActivity;
 import edu.unicauca.patacore.view.PedidoDetalleActivity;
 
 public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRecyclerView.PedidosAViewHolder> {
@@ -34,16 +36,17 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
     private int resource;
     private Activity activity;
     private Context context;
-    private RecyclerView recyclerView;
+    private RecyclerView mRecyclerV;
 
     public PedidosMenuRecyclerView(List<Menu> menuList, Context context, RecyclerView recyclerView) {
         this.menuList = menuList;
         this.context = context;
-        this.recyclerView = recyclerView;
+        this.mRecyclerV = recyclerView;
     }
 
-    public PedidosMenuRecyclerView(ArrayList<Menu> menuArrayList, int resource, Activity activity) {
+    public PedidosMenuRecyclerView(ArrayList<Menu> menuArrayList, Context context, int resource, Activity activity) {
         this.menuArrayList = menuArrayList;
+        this.context = context;
         this.resource = resource;
         this.activity = activity;
     }
@@ -80,16 +83,15 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
 
 
         //listen to single view layout click
-       /* holder.layout.setOnClickListener(new View.OnClickListener() {
+        holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Choose option");
-                builder.setMessage("Update or delete user?");
+                builder.setTitle("Menu de Opciones");
+                builder.setMessage("deseas actualizar o eliminar?");
                 builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                         //go to update activity
                         goToUpdateActivity(menu.getId());
 
@@ -98,14 +100,16 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
                 builder.setNeutralButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                       // SQLiteFood dbHelper = new SQLiteFood(context);
-                        //dbHelper.deleteMenuRecord(menu.getId(), context);
-
-                        menuList.remove(position);
-                        recyclerView.removeViewAt(position);
+                        SQLiteFood sqLiteFood = new SQLiteFood(context);
+                        sqLiteFood.deleteMenuRecord(menu.getId(), context);
+                        //Toast.makeText(activity.getApplicationContext(), "Elimino"+position, Toast.LENGTH_SHORT).show();
+                          menuArrayList.remove(position);
+                        //mRecyclerV.removeViewAt(position);;
                         notifyItemRemoved(position);
-                        notifyItemRangeChanged(position, menuList.size());
+                        notifyItemRangeChanged(position, menuArrayList.size());
                         notifyDataSetChanged();
+
+
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -116,13 +120,13 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
                 });
                 builder.create().show();
             }
-        });*/
+        });
 
 
     }
-    private void goToUpdateActivity(long personId){
-        Intent goToUpdate = new Intent(context, AgregarPlatoActivity.class);
-        goToUpdate.putExtra("USER_ID", personId);
+    private void goToUpdateActivity(long menuId){
+        Intent goToUpdate = new Intent(context, EditarPlatoActivity.class);
+        goToUpdate.putExtra("MENU_ID", menuId);
         context.startActivity(goToUpdate);
     }
 
@@ -140,7 +144,7 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
         TextView txtNombre;
         TextView txtPrecio;
         ImageView img_card_menu;
-        //public View layout;
+        public View layout;
 
 
 
@@ -148,22 +152,22 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
         public PedidosAViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            //layout= itemView;
+            layout= itemView;
             img_card_menu = itemView.findViewById(R.id.img_card_menu);
             txtNombre = itemView.findViewById(R.id.txtNombre);
             txtPrecio = itemView.findViewById(R.id.txtPrecio);
 
         }
 
-      /*  public void add(int position, Menu menu) {
-            menuList.add(position, menu);
+        public void add(int position, Menu menu) {
+            menuArrayList.add(position, menu);
             notifyItemInserted(position);
         }
 
-        public void removeMenu(int position) {
-            menuList.remove(position);
+        public void removem(int position) {
+            menuArrayList.remove(position);
             notifyItemRemoved(position);
-        }*/
+        }
 
 
     }
