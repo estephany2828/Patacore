@@ -2,6 +2,7 @@ package edu.unicauca.patacore.view;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -31,7 +32,7 @@ import edu.unicauca.patacore.model.Menu;
 import edu.unicauca.patacore.view.fragment.MenuFragment;
 
 public class AgregarPlatoActivity extends AppCompatActivity {
-    EditText editTxtNombre, editTxtPrecio;
+    EditText editTxtNombre, editTxtPrecio, editTxtUrlImg, editTxtDescription;
     Button btnAdd, btnDirMenu, btnBuscar;
     ImageView imageView;
     //public static SQLiteFood sqLiteFood;
@@ -50,39 +51,55 @@ public class AgregarPlatoActivity extends AppCompatActivity {
         db= sqLiteFood.getWritableDatabase();
 
         //sqLiteFood.queryData("CREATE TABLE IF NOT EXISTS FOOD(id_food INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, price VARCHAR, image BLOG)");
-        btnBuscar.setOnClickListener(new View.OnClickListener() {
+        /*btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 ActivityCompat.requestPermissions(
                         AgregarPlatoActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         REQUEST_CODE_GALLERY
                 );
             }
-        });
+        });*/
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 agregar();
             }
         });
+        sqLiteFood.insertData("pollo", "5000","https://image.freepik.com/foto-gratis/plato-pechuga-pollo_1205-4244.jpg",  "ddd"  );
+        sqLiteFood.insertData("pollo", "5000" , "https://peru21.pe/resizer/GjiPoTh0tNBPixu-SjuZ58BFDpM=/980x528/smart/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/ZCPPKN7SHBAA7HPUJHRUGHS32U.jpg", "aa" );
+        sqLiteFood.insertData("pollo", "5000", "https://cdn.pixabay.com/photo/2014/12/16/23/45/soup-570922_960_720.jpg", "aa"  );
+        sqLiteFood.insertData("pollo", "5000","https://cdn.colombia.com/sdi/2011/08/02/bandeja-paisa-500927.jpg",  "aa"  );
+        sqLiteFood.insertData("pollo", "5000","https://www.reinadelaselva.pe/content/img_noticia/limonada.jpg",  "dd"  );
+        sqLiteFood.insertData( "pollo", "5000", "https://image.freepik.com/foto-gratis/plato-pechuga-pollo_1205-4244.jpg", "pollitoo");
+
+        //volver atras
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
     }
 
 
 
     public void agregar(){
-        //sqLiteFood.insertData( "pollo", "5000", "https://image.freepik.com/foto-gratis/plato-pechuga-pollo_1205-4244.jpg");
+
         try {
             sqLiteFood.insertData(
                     editTxtNombre.getText().toString().trim(),
                     editTxtPrecio.getText().toString().trim(),
-                    imageViewToByte(imageView)
+                    editTxtUrlImg.getText().toString().trim(),
+                    editTxtDescription.getText().toString().trim()
+                    //imageViewToByte(imageView)
             );
             Toast.makeText(getApplicationContext(), "Agregar plato", Toast.LENGTH_SHORT).show();
             editTxtNombre.setText("");
             editTxtPrecio.setText("");
-            imageView.setImageResource(R.mipmap.ic_launcher);
+            editTxtUrlImg.setText("");
+            editTxtDescription.setText("");
+
+            //imageView.setImageResource(R.drawable.panadero);
             //goBackMenu();
 
 
@@ -157,14 +174,18 @@ public class AgregarPlatoActivity extends AppCompatActivity {
     public void  init(){
         editTxtNombre = findViewById(R.id.editTxtNombre);
         editTxtPrecio = findViewById(R.id.editTxtPrecio);
+        editTxtUrlImg = findViewById(R.id.editTxtImagen);
+        editTxtDescription= findViewById(R.id.editTxtDescripcion);
         btnAdd= findViewById(R.id.btnAdd);
-        btnDirMenu=findViewById(R.id.btnDirMenu);
-        btnBuscar=findViewById(R.id.btnBuscar);
         imageView=findViewById(R.id.imgPlato);
     }
 }
 
 /*
+        //init
+  btnDirMenu=findViewById(R.id.btnDirMenu);
+        btnBuscar=findViewById(R.id.btnBuscar);
+        //fin init
 
     private void saveMenuFood() {
         String name = editTxtNombre.getText().toString().trim();

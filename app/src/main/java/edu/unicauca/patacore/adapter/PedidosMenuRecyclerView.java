@@ -24,6 +24,8 @@ import java.util.List;
 
 import edu.unicauca.patacore.R;
 import edu.unicauca.patacore.data.db.SQLiteFood;
+
+
 import edu.unicauca.patacore.model.Menu;
 import edu.unicauca.patacore.model.Pedidos;
 import edu.unicauca.patacore.view.AgregarPlatoActivity;
@@ -69,16 +71,27 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
     @Override
     public void onBindViewHolder(@NonNull PedidosAViewHolder holder, final int position) {
 
-        final Menu menu = menuArrayList.get(position);
+        final Menu menu= menuArrayList.get(position);
+        holder.txtIdMenu.setId(menu.getId());
         holder.txtNombre.setText(menu.getTxtNombre());
         holder.txtPrecio.setText(menu.getTxtPrecio());
+        holder.txtDescription.setText(menu.getTxtPrecio());
+
+
+        Picasso.with(activity)
+                .load(menu.getImg())
+                .resize(120, 120)
+                .placeholder(R.drawable.panadero)
+                .error(R.drawable.panadero)
+                .into(holder.img_card_menu);
+
 
         //holder.txtNombre.setText("Name: " + menu.getTxtNombre());
         //holder.txtPrecio.setText("Price: " + menu.getTxtPrecio());
 
-        byte [] foodImage =menu.getImage();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
-        holder.img_card_menu.setImageBitmap(bitmap);
+        //byte [] foodImage =menu.getImage();
+        //Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
+        //holder.img_card_menu.setImageBitmap(bitmap);
 
 
 
@@ -140,9 +153,8 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
     public class PedidosAViewHolder extends RecyclerView.ViewHolder {
 
 
-        public Menu menu;
-        TextView txtNombre;
-        TextView txtPrecio;
+        //public Menu menu
+        TextView txtNombre,txtPrecio, txtDescription, txtIdMenu;
         ImageView img_card_menu;
         public View layout;
 
@@ -153,9 +165,13 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
 
             super(itemView);
             layout= itemView;
+            txtIdMenu=itemView.findViewById(R.id.txtIdMenu);
             img_card_menu = itemView.findViewById(R.id.img_card_menu);
-            txtNombre = itemView.findViewById(R.id.txtNombre);
-            txtPrecio = itemView.findViewById(R.id.txtPrecio);
+            txtNombre = itemView.findViewById(R.id.txtNombreMenu);
+            txtPrecio = itemView.findViewById(R.id.txtPrecioMenu);
+            txtDescription= itemView.findViewById(R.id.txtPrecioMenu);
+
+
 
         }
 

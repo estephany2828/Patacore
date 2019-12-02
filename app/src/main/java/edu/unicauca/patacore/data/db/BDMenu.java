@@ -8,15 +8,18 @@ public class BDMenu {
     public static final String COLUMN_FOOD_NAME = "name";
     public static final String COLUMN_FOOD_PRICE = "price";
     public static final String COLUMN_FOOD_IMAGE = "image";
+    public static final String COLUMN_FOOD_DESCRIPTION = "description";
+
 
     public static final String CREATE_TABLA_MENU="CREATE TABLE IF NOT EXISTS"+ TABLE_MENU +
             "("+COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT,"+
             COLUMN_FOOD_NAME +" VARCHAR,"+
             COLUMN_FOOD_NAME +" VARCHAR,"+
-            COLUMN_FOOD_IMAGE +"BLOB)";
+            COLUMN_FOOD_IMAGE +"VARCHAR," +
+            COLUMN_FOOD_DESCRIPTION +"VARCHAR)";
 
     public static final String CREATE_TABLE_FOOD= ("CREATE TABLE IF NOT EXISTS "+TABLE_MENU+
-            "(id_food INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, price VARCHAR, image BLOG)");
+            "(id_food INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, price VARCHAR, image VARCHAR, description VARCHAR)");
 
 
 

@@ -26,26 +26,46 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="12dp">
-            <Button
-                android:id="@+id/btnPrep"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/text_categoria"
-                android:background="@color/colorSecondary"
-                android:textColor="@color/colorPrimary"
-                android:textAlignment="viewStart"
-                android:gravity="center"
-                cardview:ignore="RtlCompat" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txtIdMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="id"
+                    android:paddingRight="20dp"
+                   />
+                <TextView
+                    android:id="@+id/btnPrep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_categoria"
+                    android:background="@color/colorSecondary"
+                    android:textColor="@color/colorPrimary"
+                    android:textAlignment="viewStart"
+                    android:gravity="center"
+                    cardview:ignore="RtlCompat" />
+
+            </LinearLayout>
+
             <TextView
-                android:id="@+id/txtNombre"
+                android:id="@+id/txtNombreMenu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/txt_nombre"
                 android:textColor="@color/colorBG"/>
             <TextView
-                android:id="@+id/txtPrecio"
+                android:id="@+id/txtPrecioMenu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:text="@string/txt_precio"
+                android:textColor="@color/colorBG"/>
+            <TextView
+                android:id="@+id/txtDescriptionMenu"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:text="@string/txt_precio"
                 android:textColor="@color/colorBG"/>
 

@@ -26,26 +26,29 @@
                 android:id="@+id/imgPlato"
                 android:layout_width="200dp"
                 android:layout_height="120dp"
-                android:background="@mipmap/ic_launcher" />
-            <Button
-                android:id="@+id/btnBuscar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Buscar"
-                />
-
+                android:background="@drawable/panadero" />
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tiPwrd"
+                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
                 >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTxtNombre"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
 
-                </com.google.android.material.textfield.TextInputEditText>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTxtNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/iconLoginLeft"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/zerodp"
+                android:hint="aqui va el nombre del plato"
+                android:inputType="text"
+               >
+            </com.google.android.material.textfield.TextInputEditText>
+
             </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -55,7 +58,44 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editTxtPrecio"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:hint="aqui va el precio"
+                    android:inputType="text">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputImagen"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTxtImagen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/iconLoginLeft"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginLeft="@dimen/zerodp"
+                    android:hint="aqui va el nombre la url del plato"
+                    android:inputType="textUri"
+                    >
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTxtDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="aqui va el nombre la url del descripcion"
+                    android:inputType="text"
+                    >
 
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
@@ -67,13 +107,7 @@
                 />
 
 
-            <Button
-                android:id="@+id/btnDirMenu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:text="Enviar"
-                />
+
 
         </LinearLayout>
 
@@ -83,3 +117,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!-- <Button
+                   android:id="@+id/btnDirMenu"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="100dp"
+                   android:text="Enviar"
+                   />-->

@@ -68,18 +68,24 @@ public class SQLiteFood extends SQLiteOpenHelper {
         db.insert(BDMenu.TABLE_MENU,null, values);
         db.close();
     }
-    public void insertData(String name, String price, byte[] imagePlato){
+    //public void insertData(String name, String price, byte[] imagePlato){
+    public void insertData(String name, String price, String imagePlato, String description){
+
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO FOOD VALUES (NULL, ?, ?, ?)";
+        String sql = "INSERT INTO FOOD VALUES (NULL, ?, ?, ?,?)";
         //String sql = "INSERT INTO FOOD VALUES (NULL, ?, ?, ?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
         statement.bindString(1, name);
         statement.bindString(2, price);
-        statement.bindBlob(3, imagePlato);
+        statement.bindString(3, imagePlato);
+        statement.bindString(4, description);
+
+        //statement.bindBlob(3, imagePlato);
         statement.executeInsert();
 
     }
+
     //PARA CREAR LA TABLA FOOD ES LA QUE CREA LOS PLATOS
     public void queryData(String sql){
         SQLiteDatabase database = getWritableDatabase();
@@ -99,11 +105,12 @@ public class SQLiteFood extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     menu = new Menu();
-
                     menu.setId(cursor.getInt(cursor.getColumnIndex(BDMenu.COLUMN_ID)));
                     menu.setTxtNombre(cursor.getString(cursor.getColumnIndex(BDMenu.COLUMN_FOOD_NAME)));
                     menu.setTxtPrecio(cursor.getString(cursor.getColumnIndex(BDMenu.COLUMN_FOOD_PRICE)));
-                    menu.setImage(cursor.getBlob(cursor.getColumnIndex(BDMenu.COLUMN_FOOD_IMAGE)));
+                    menu.setImg(cursor.getString(cursor.getColumnIndex(BDMenu.COLUMN_FOOD_IMAGE)));
+                    menu.setTxtDescription(cursor.getString(cursor.getColumnIndex(BDMenu.COLUMN_FOOD_DESCRIPTION)));
+                    // menu.setImage(cursor.getBlob(cursor.getColumnIndex(BDMenu.COLUMN_FOOD_IMAGE)));
                     menuArrayList.add(menu);
                 } while (cursor.moveToNext());
             }
@@ -175,7 +182,8 @@ public class SQLiteFood extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         //you can use the constants above instead of typing the column names
         db.execSQL("UPDATE  "+ BDMenu.TABLE_MENU+" SET name ='"+ updatedmenu.getTxtNombre() + "', " +
-                "price ='" + updatedmenu.getTxtPrecio() + "' image ='"+ updatedmenu.getImage() + "'" +
+                "price ='" + updatedmenu.getTxtPrecio() + "' image ='"+ updatedmenu.getImg()
+                + "'" + "'description='"+updatedmenu.getTxtDescription()+
                 " WHERE id_food='" + foodId + "'");
         Toast.makeText(context, "Updated successfully.", Toast.LENGTH_SHORT).show();
 

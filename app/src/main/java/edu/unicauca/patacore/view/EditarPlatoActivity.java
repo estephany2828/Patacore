@@ -12,11 +12,8 @@ import edu.unicauca.patacore.data.db.SQLiteFood;
 import edu.unicauca.patacore.model.Menu;
 
 public class EditarPlatoActivity extends AppCompatActivity {
-    private EditText foodNameUpdate;
-    private EditText foodPriceUpdate;
-    private EditText imgUpdate;
+    private EditText foodPriceUpdate, descriptionUpdate, foodNameUpdate, imgUpdate;
     private Button updateFoodButton;
-
     private SQLiteFood sqLiteFood;
     private long receivedPersonId;
 
@@ -62,16 +59,18 @@ public class EditarPlatoActivity extends AppCompatActivity {
         String name = foodNameUpdate.getText().toString().trim();
         String price = foodPriceUpdate.getText().toString().trim();
         String img = imgUpdate.getText().toString().trim();
-        Menu updatedPerson = new Menu(name, price, img);
+        String description = imgUpdate.getText().toString().trim();
+         Menu updatedPerson = new Menu(name, price, img, description);
 
         //call dbhelper update
-        sqLiteFood.updateMenuFoodRecord(receivedPersonId, this, updatedPerson);
+         sqLiteFood.updateMenuFoodRecord(receivedPersonId, this, updatedPerson);
     }
 
     private void init() {
         foodNameUpdate = (EditText)findViewById(R.id.foodNameUpdate);
         foodPriceUpdate = (EditText)findViewById(R.id.foodPriceUpdate);
         imgUpdate = (EditText)findViewById(R.id.imgUpdate);
+        descriptionUpdate = (EditText)findViewById(R.id.descriptionUpdate);
         updateFoodButton = (Button)findViewById(R.id.updateFoodButton);
     }
 
