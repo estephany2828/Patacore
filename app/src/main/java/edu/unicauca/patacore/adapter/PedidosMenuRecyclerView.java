@@ -72,7 +72,7 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
     public void onBindViewHolder(@NonNull PedidosAViewHolder holder, final int position) {
 
         final Menu menu= menuArrayList.get(position);
-        holder.txtIdMenu.setId(menu.getId());
+        holder.txtIdMenu.setText(String.valueOf( menu.getId()));
         holder.txtNombre.setText(menu.getTxtNombre());
         holder.txtPrecio.setText(menu.getTxtPrecio());
         holder.txtDescription.setText(menu.getTxtPrecio());

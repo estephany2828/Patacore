@@ -39,7 +39,8 @@ public class EditarPlatoActivity extends AppCompatActivity {
         //set field to this user data
         foodNameUpdate.setText(menu.getTxtNombre());
         foodPriceUpdate.setText(menu.getTxtPrecio());
-        //imgUpdate.setText(menu.getImg());
+        descriptionUpdate.setText(menu.getTxtDescription());
+        imgUpdate.setText(menu.getImg());
 
 
 
@@ -60,7 +61,7 @@ public class EditarPlatoActivity extends AppCompatActivity {
         String price = foodPriceUpdate.getText().toString().trim();
         String img = imgUpdate.getText().toString().trim();
         String description = imgUpdate.getText().toString().trim();
-         Menu updatedPerson = new Menu(name, price, img, description);
+        Menu updatedPerson = new Menu(name, price, img, description);
 
         //call dbhelper update
          sqLiteFood.updateMenuFoodRecord(receivedPersonId, this, updatedPerson);
