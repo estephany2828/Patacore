@@ -4,9 +4,12 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.icu.text.CaseMap;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toolbar;
 
 import edu.unicauca.patacore.R;
@@ -28,6 +31,8 @@ public class MainMenuActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(upBotton);
 
     }
+
+
 
 
 }

@@ -52,13 +52,6 @@ public class PedidosAdapterRecyclerView extends RecyclerView.Adapter<PedidosAdap
        holder.textNameCard.setText(pedido.getTextNameCard());
        holder.textDateCard.setText(pedido.getTextDateCard());
        holder.textDateActCard.setText(pedido.getTextDateActCard());
-
-
-
-
-
-
-
     }
 
     @Override

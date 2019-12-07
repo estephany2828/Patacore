@@ -131,18 +131,17 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
                 <Button
                     android:id="@+id/login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/activity_vertical_margin"
+                    android:onClick="goMenuPrincipal"
                     android:text="@string/title_activity_login"
                     android:theme="@style/ButtonDarkLogin"
-                    app:layout_constraintTop_toBottomOf="@+id/gPwrd"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    >
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gPwrd">
 
                 </Button>
 

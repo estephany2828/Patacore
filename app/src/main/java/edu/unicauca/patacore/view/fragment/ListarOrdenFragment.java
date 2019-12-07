@@ -40,7 +40,7 @@ public class ListarOrdenFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_listar_orden, container, false);
 
-        RecyclerView pedidosRecycler =view.findViewById(R.id.menuRecycler);
+        RecyclerView pedidosRecycler = view.findViewById(R.id.menuRecycler);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(linearLayoutManager.VERTICAL);
         pedidosRecycler.setLayoutManager(linearLayoutManager);

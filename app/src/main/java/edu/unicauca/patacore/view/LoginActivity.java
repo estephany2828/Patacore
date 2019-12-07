@@ -56,14 +56,12 @@ public class LoginActivity extends AppCompatActivity{
 
 
 
-
-
- /*    @Override
+  /*  @Override
    public void onClick(View view) {
         //loadingProgressBar.setVisibility(View.VISIBLE);
         loginViewModel.login(usernameEditText.getText().toString(),
                 passwordEditText.getText().toString());
         goMenuPrincipal(view);
 
-    }*/
+    }  */
 }
