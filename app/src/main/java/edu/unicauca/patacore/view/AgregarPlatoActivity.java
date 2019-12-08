@@ -121,7 +121,7 @@ public class AgregarPlatoActivity extends AppCompatActivity {
         return menu;
     }*/
     private void goBackMenu() {
-        Intent intent= new Intent(AgregarPlatoActivity.this, LoginActivity.class);
+        Intent intent= new Intent(AgregarPlatoActivity.this, ContainerActivity.class);
         startActivity(intent);
     }
 

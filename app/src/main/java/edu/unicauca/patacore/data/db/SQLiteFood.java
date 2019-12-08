@@ -182,11 +182,12 @@ public class SQLiteFood extends SQLiteOpenHelper {
    public void updateMenuFoodRecord(long foodId, Context context, Menu updatedmenu) {
         SQLiteDatabase db = this.getWritableDatabase();
         //you can use the constants above instead of typing the column names
-       db.execSQL("UPDATE   "+ BDMenu.TABLE_MENU+
-                   ",SET name ='"+ updatedmenu.getTxtNombre() +
-                   "', " + "price ='" + updatedmenu.getTxtPrecio() + "' image ='"+ updatedmenu.getImg()
-                + "'" + "'description='"+updatedmenu.getTxtDescription()+
-                " WHERE id_food='" + foodId + "'");
+
+       db.execSQL("UPDATE "+ BDMenu.TABLE_MENU+" SET name = '"+updatedmenu.getTxtNombre()+"', " +
+               "price = '"+ updatedmenu.getTxtPrecio() +"',image ='"+ updatedmenu.getImg()+"'," +
+               " description= '"+updatedmenu.getTxtDescription()+"' WHERE id_food= '" + foodId +"'");
+
+
         Toast.makeText(context, "Updated successfully.", Toast.LENGTH_SHORT).show();
 
 

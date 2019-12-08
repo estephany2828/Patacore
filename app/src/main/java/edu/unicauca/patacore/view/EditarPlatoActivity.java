@@ -2,6 +2,7 @@ package edu.unicauca.patacore.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -50,9 +51,14 @@ public class EditarPlatoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //call the save person method
                 updatePerson();
+                goBackMenu();
             }
         });
        
+    }
+    private void goBackMenu() {
+        Intent intent= new Intent(this, ContainerActivity.class);
+        startActivity(intent);
     }
 
     private void updatePerson() {
