@@ -34,7 +34,7 @@
                 >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTxtNombre"
+                android:id="@+id/agregarNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/iconLoginLeft"
@@ -56,7 +56,7 @@
                 android:layout_height="50dp"
                 >
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTxtPrecio"
+                    android:id="@+id/agregarPrecio"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="aqui va el precio"
@@ -72,7 +72,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTxtImagen"
+                    android:id="@+id/agregarImagen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/iconLoginLeft"
@@ -87,10 +87,10 @@
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 >
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTxtDescripcion"
+                    android:id="@+id/agregarDescripcion"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="aqui va el nombre la url del descripcion"

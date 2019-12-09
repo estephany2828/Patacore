@@ -32,7 +32,7 @@ import edu.unicauca.patacore.model.Menu;
 import edu.unicauca.patacore.view.fragment.MenuFragment;
 
 public class AgregarPlatoActivity extends AppCompatActivity {
-    EditText editTxtNombre, editTxtPrecio, editTxtUrlImg, editTxtDescription;
+    EditText agregarNombre, agregarPrecio, agregarImagen, agregarDescripcion;
     Button btnAdd, btnDirMenu, btnBuscar;
     ImageView imageView;
     //public static SQLiteFood sqLiteFood;
@@ -87,17 +87,18 @@ public class AgregarPlatoActivity extends AppCompatActivity {
 
         try {
             sqLiteFood.insertData(
-                    editTxtNombre.getText().toString().trim(),
-                    editTxtPrecio.getText().toString().trim(),
-                    editTxtUrlImg.getText().toString().trim(),
-                    editTxtDescription.getText().toString().trim()
+
+                    agregarNombre.getText().toString().trim(),
+                    agregarPrecio.getText().toString().trim(),
+                    agregarImagen.getText().toString().trim(),
+                    agregarDescripcion.getText().toString().trim()
                     //imageViewToByte(imageView)
             );
-            Toast.makeText(getApplicationContext(), "Agregar plato", Toast.LENGTH_SHORT).show();
-            editTxtNombre.setText("");
-            editTxtPrecio.setText("");
-            editTxtUrlImg.setText("");
-            editTxtDescription.setText("");
+            Toast.makeText(getApplicationContext(), "plato Agregado", Toast.LENGTH_SHORT).show();
+            agregarNombre.setText("");
+            agregarPrecio.setText("");
+            agregarImagen.setText("");
+            agregarDescripcion.setText("");
 
             //imageView.setImageResource(R.drawable.panadero);
             //goBackMenu();
@@ -172,10 +173,10 @@ public class AgregarPlatoActivity extends AppCompatActivity {
 
     // agregamos a las variables lo que hay en los layaout
     public void  init(){
-        editTxtNombre = findViewById(R.id.editTxtNombre);
-        editTxtPrecio = findViewById(R.id.editTxtPrecio);
-        editTxtUrlImg = findViewById(R.id.editTxtImagen);
-        editTxtDescription= findViewById(R.id.editTxtDescripcion);
+        agregarNombre = findViewById(R.id.agregarNombre);
+        agregarPrecio = findViewById(R.id.agregarPrecio);
+        agregarImagen = findViewById(R.id.agregarImagen);
+        agregarDescripcion= findViewById(R.id.agregarDescripcion);
         btnAdd= findViewById(R.id.btnAdd);
         imageView=findViewById(R.id.imgPlato);
     }
