@@ -12,18 +12,18 @@ public class Menu {
 
     }
 
-    public Menu(int id, String txtNombre, String txtPrecio, String txtDescription, String img) {
+    public Menu(int id, String txtNombre, String txtPrecio, String img, String txtDescription) {
         this.id = id;
         this.txtNombre = txtNombre;
         this.txtPrecio = txtPrecio;
         this.txtDescription = txtDescription;
         this.img = img;
     }
-    public Menu(String txtNombre, String txtPrecio, String txtDescription, String img) {
+    public Menu(String txtNombre, String txtPrecio, String img, String txtDescription) {
         this.txtNombre = txtNombre;
         this.txtPrecio = txtPrecio;
-        this.txtDescription = txtDescription;
         this.img = img;
+        this.txtDescription = txtDescription;
     }
 
 

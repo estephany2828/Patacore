@@ -75,15 +75,13 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
         holder.txtIdMenu.setText(String.valueOf( menu.getId()));
         holder.txtNombre.setText(menu.getTxtNombre());
         holder.txtPrecio.setText(menu.getTxtPrecio());
-        holder.txtDescription.setText(menu.getTxtPrecio());
-
-
         Picasso.with(activity)
                 .load(menu.getImg())
                 .resize(120, 120)
                 .placeholder(R.drawable.panadero)
                 .error(R.drawable.panadero)
                 .into(holder.img_card_menu);
+        holder.txtDescriptionMenu.setText(menu.getTxtDescription());
 
 
         //holder.txtNombre.setText("Name: " + menu.getTxtNombre());
@@ -154,7 +152,7 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
 
 
         //public Menu menu
-        TextView txtNombre,txtPrecio, txtDescription, txtIdMenu;
+        TextView txtNombre,txtPrecio, txtDescriptionMenu, txtIdMenu;
         ImageView img_card_menu;
         public View layout;
 
@@ -169,7 +167,7 @@ public class PedidosMenuRecyclerView extends RecyclerView.Adapter<PedidosMenuRec
             img_card_menu = itemView.findViewById(R.id.img_card_menu);
             txtNombre = itemView.findViewById(R.id.txtNombreMenu);
             txtPrecio = itemView.findViewById(R.id.txtPrecioMenu);
-            txtDescription= itemView.findViewById(R.id.txtPrecioMenu);
+            txtDescriptionMenu= itemView.findViewById(R.id.txtDescriptionMenu);
 
 
 

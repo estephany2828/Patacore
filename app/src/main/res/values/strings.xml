@@ -47,5 +47,6 @@
     <string name="tab_menu">menu</string>
     <string name="tab_pedido">pedido</string>
     <string name="txt_mesa">1</string>
+    <string name="txt_description">pollo,arroz</string>
 
 </resources>

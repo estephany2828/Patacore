@@ -2,6 +2,7 @@ package edu.unicauca.patacore.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,8 +40,9 @@ public class EditarPlatoActivity extends AppCompatActivity {
         //set field to this user data
         foodNameUpdate.setText(menu.getTxtNombre());
         foodPriceUpdate.setText(menu.getTxtPrecio());
-        descriptionUpdate.setText(menu.getTxtDescription());
         imgUpdate.setText(menu.getImg());
+        descriptionUpdate.setText(menu.getTxtDescription());
+
 
 
 
@@ -50,9 +52,14 @@ public class EditarPlatoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //call the save person method
                 updatePerson();
+                goBackMenu();
             }
         });
        
+    }
+    private void goBackMenu() {
+        Intent intent= new Intent(this, ContainerActivity.class);
+        startActivity(intent);
     }
 
     private void updatePerson() {
@@ -60,7 +67,7 @@ public class EditarPlatoActivity extends AppCompatActivity {
         String name = foodNameUpdate.getText().toString().trim();
         String price = foodPriceUpdate.getText().toString().trim();
         String img = imgUpdate.getText().toString().trim();
-        String description = imgUpdate.getText().toString().trim();
+        String description = descriptionUpdate.getText().toString().trim();
         Menu updatedPerson = new Menu(name, price, img, description);
 
         //call dbhelper update
