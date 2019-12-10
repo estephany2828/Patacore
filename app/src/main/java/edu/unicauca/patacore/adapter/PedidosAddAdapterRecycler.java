@@ -55,7 +55,8 @@ public class PedidosAddAdapterRecycler extends RecyclerView.Adapter<PedidosAddAd
     public void onBindViewHolder(ViewHolderProductos holder, int position) {
         holder.etiNombre.setText(listaProductos.get(position).getNombre());
         holder.etiInformacion.setText(listaProductos.get(position).getDescripcion());
-        holder.etiFoto.setImageResource(listaProductos.get(position).getImagen());
+        //holder.etiFoto.setImageResource(listaProductos.get(position).getImagen());
+
     }
 
     @Override

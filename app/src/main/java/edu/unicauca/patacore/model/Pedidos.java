@@ -5,52 +5,47 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 public class Pedidos {
-    private int imgCard;
-    private String textNameCard;
-    private String textDateCard;
-    private String textDateActCard;
+    private String imgCard;
+    private String txtNombre;
+    private String txtPrecio;
+private int img;
+    public int getImg() {
+        return img;
+    }
+    public void setImg(int img) {
+        this.img = img;
+    }
 
-
-    public int getImgCard() {
+    public String getImgCard() {
         return imgCard;
     }
 
-    public void setImgCard(int imgCard) {
+
+    public void setImgCard(String imgCard) {
         this.imgCard = imgCard;
     }
 
-    public String getTextNameCard() {
-        return textNameCard;
+
+    public String getTxtNombre() {
+        return txtNombre;
     }
 
-    public void setTextNameCard(String textNameCard) {
-        this.textNameCard = textNameCard;
+    public void setTxtNombre(String txtNombre) {
+        this.txtNombre = txtNombre;
     }
 
-    public String getTextDateCard() {
-        return textDateCard;
+    public String getTxtPrecio() {
+        return txtPrecio;
     }
 
-    public void setTextDateCard(String textDateCard) {
-        this.textDateCard = textDateCard;
+    public void setTxtPrecio(String txtPrecio) {
+        this.txtPrecio = txtPrecio;
     }
 
-    public String getTextDateActCard() {
-        return textDateActCard;
-    }
-
-    public void setTextDateActCard(String textDateActCard) {
-        this.textDateActCard = textDateActCard;
-    }
-
-    public Pedidos(int imgCard, String textNameCard, String textDateCard, String textDateActCard) {
+    public Pedidos( String imgCard, String txtNombre, String txtPrecio) {
         this.imgCard = imgCard;
-        this.textNameCard = textNameCard;
-        this.textDateCard = textDateCard;
-        this.textDateActCard = textDateActCard;
+        this.txtNombre = txtNombre;
+        this.txtPrecio = txtPrecio;
     }
-
-
-
 }
 

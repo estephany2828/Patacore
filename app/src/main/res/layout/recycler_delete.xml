@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="20dp"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/prin_list_pedidos"
+    android:layout_height="@dimen/list_height_ped"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +24,8 @@
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@+id/barrier"
             app:layout_constraintTop_toTopOf="parent"
-            cardview:layout_editor_absoluteX="8dp" />
+            cardview:layout_editor_absoluteX="8dp"
+            cardview:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textNameCard"
@@ -33,7 +34,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/textname_card"
+            android:text="@string/txt_nombre"
             android:textColor="@color/colorBG"
             android:textSize="@dimen/firsttitle_card"
             app:layout_constraintBottom_toTopOf="@+id/barrier"
