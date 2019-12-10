@@ -185,7 +185,7 @@ public class SQLiteFood extends SQLiteOpenHelper {
         //you can use the constants above instead of typing the column names
 
        db.execSQL("UPDATE "+ BDMenu.TABLE_MENU+" SET name = '"+updatedmenu.getTxtNombre()+"', " +
-               "price = '"+ updatedmenu.getTxtPrecio() +"',image ='url'," +
+               "price = '"+ updatedmenu.getTxtPrecio() +"',image ='"+ updatedmenu.getImg()+"'," +
                " description= '"+updatedmenu.getTxtDescription()+"' WHERE id_food= '" + foodId +"'");
 // "+ updatedmenu.getImg()+"
 
