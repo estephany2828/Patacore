@@ -38,14 +38,44 @@ public class PedidosNewAdapterRecycler extends RecyclerView.Adapter<PedidosNewAd
     Gson gson = new Gson ();
 
 
-    public PedidosNewAdapterRecycler(ArrayList<Producto> listaProductos) {
+    public PedidosNewAdapterRecycler(ArrayList<Producto> listaProductos, Context context) {
         this.listaProductos = listaProductos;
+        gestorSQL = new GestorSQL(context);
     }
 
     public PedidosNewAdapterRecycler (Context context){
         this.context = context;
         gestorSQL = new GestorSQL(context);
         listaProductos = gestorSQL.consultarProductos();
+        actualizarEstado();
+    }
+
+    public Pedido getPedido (){
+        Pedido pedido = new Pedido();
+        pedido.setProductos(listaProductos);
+        return pedido;
+    }
+
+    private void actualizarEstado () {
+        Pedido pedido = gestorSQL.consPedido(1,1);
+
+        ArrayList<Producto> listaProdPedidos = pedido.getProductos();
+        int tArrPPed = listaProdPedidos.size();
+
+        //Toast.makeText(context, "Tamaño productos pedidos: " + listaProdPedidos.get(0).getNombre(), Toast.LENGTH_SHORT).show();
+        int tArrProd = listaProductos.size();
+        for (int i = 0; i < tArrPPed; i++) {
+            for (int e = 0; e < tArrProd; e++) {
+                if (listaProductos.get(e).getNombre().equals(listaProdPedidos.get(i).getNombre())) {
+                    if (listaProdPedidos.get(i).getCantidad()>0) {
+                        listaProductos.get(e).setSelected(true);
+                        listaProductos.get(e).setCantidad(listaProdPedidos.get(i).getCantidad());
+                    }
+                    break;
+                }
+            }
+        }
+
     }
 
 
@@ -97,27 +127,28 @@ public class PedidosNewAdapterRecycler extends RecyclerView.Adapter<PedidosNewAd
             String nombre = (String) etiNombre.getText();
             int indice = buscarProducto(nombre);
             switch (v.getId()){
-                /*
-                case R.id.fbtnActualizar:
-
-                    Toast.makeText(context, "Pedido actualizado" , Toast.LENGTH_SHORT).show();
-                    break;
-                */
                 case R.id.btnMas:
 
                         if (indice != -1){
                             int newCantidad = listaProductos.get(indice).getCantidad()+1;
                             listaProductos.get(indice).setCantidad(newCantidad);
+                            if (checkProducto.isChecked()) {
+                                gestorSQL.actualizarPedido(1,1, listaProductos.get(indice));
+                            }
                             numProd.setText(String.valueOf(newCantidad));
+
                         }
                     break;
 
                 case R.id.btnMenos:
                     if (indice != -1){
                         int cantActual = listaProductos.get(indice).getCantidad();
-                        if (cantActual > 0) {
+                        if (cantActual > 1) {
                             int newCantidad = cantActual -1;
                             listaProductos.get(indice).setCantidad(newCantidad);
+                            if (checkProducto.isChecked()) {
+                                gestorSQL.actualizarPedido(1, 1, listaProductos.get(indice));
+                            }
                             numProd.setText(String.valueOf(newCantidad));
                         }
                     }
@@ -126,6 +157,14 @@ public class PedidosNewAdapterRecycler extends RecyclerView.Adapter<PedidosNewAd
                 case R.id.checkProd:
                     if (indice != -1){
                         listaProductos.get(indice).setSelected(checkProducto.isChecked());
+
+                        if (checkProducto.isChecked() && !(gestorSQL.existe(1,1, listaProductos.get(indice).getNombre()))) {
+
+                            gestorSQL.regPedido(1, "afasd", "fadfsd", listaProductos.get(indice).getNombre(), 1, listaProductos.get(indice).getCantidad());
+                        }else{
+                            gestorSQL.eliminarPedido(1,1, listaProductos.get(indice));
+                        }
+
                     }
                     break;
             }

@@ -1,8 +1,10 @@
 package edu.unicauca.patacore.view.fragment;
 
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -25,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import edu.unicauca.patacore.MainMenuActivity;
 import edu.unicauca.patacore.R;
 import edu.unicauca.patacore.data.ConexionSQLiteHelper;
 import edu.unicauca.patacore.data.GestorSQL;
@@ -43,7 +46,7 @@ public class NewOrdenFragment extends Fragment {
     PedidosNewAdapterRecycler adapter;
     Context context;
     GestorSQL gestorSQL;
-
+    FloatingActionButton fabActualizarPedido;
 
     public NewOrdenFragment() {
         // Required empty public constructor
@@ -72,15 +75,41 @@ public class NewOrdenFragment extends Fragment {
 
        gestorSQL = new GestorSQL(context);
        //llenarProductos ();
-       consultarListaProductos();
+       //consultarListaProductos();
        //regPedido();
-        actualizarEstadoSelected();
+        //actualizarEstadoSelected();
         //consultaSQL();
 
-       adapter = new PedidosNewAdapterRecycler(listaProductos);
+       adapter = new PedidosNewAdapterRecycler(context);
        //adapter = new PedidosNewAdapterRecycler(context);
        recyclerProductos.setAdapter(adapter);
-
+       fabActualizarPedido = (FloatingActionButton)view.findViewById(R.id.fbtnActualizar);
+       fabActualizarPedido.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               listaProductos = gestorSQL.consPedido(1,1).getProductos();
+               AlertDialog.Builder alerta = new AlertDialog.Builder(getActivity());
+               alerta.setMessage(gestorSQL.cambiosPedido(1))
+                       .setTitle("Cambios pedido")
+                       .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               gestorSQL.eliminarTotalPedido(1,2);
+                                for (int i=0; i<listaProductos.size(); i++){
+                                    gestorSQL.regPedido(1, "afasd", "fadfsd", listaProductos.get(i).getNombre(), 2, listaProductos.get(i).getCantidad());
+                                }
+                           }
+                       })
+                       .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                           }
+                       });
+                AlertDialog titulo = alerta.create();
+                titulo.show();
+           }
+       });
 
 
        // Inflate the layout for this fragment
@@ -108,7 +137,7 @@ public class NewOrdenFragment extends Fragment {
     }
 
     private void actualizarEstadoSelected (){
-        Pedido pedido = gestorSQL.consPedido(1);
+        Pedido pedido = gestorSQL.consPedido(1,2);
 
         ArrayList<Producto> listaProdPedidos = pedido.getProductos();
         int tArrPPed = listaProdPedidos.size();

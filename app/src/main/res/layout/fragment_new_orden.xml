@@ -17,7 +17,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerProductos"
             android:layout_width="match_parent"
-            android:layout_height="565dp"
+            android:layout_height="457dp"
             tools:listitem="@layout/recycler_delete">
 
         </androidx.recyclerview.widget.RecyclerView>
