@@ -42,7 +42,7 @@ public class ContainerActivity extends AppCompatActivity {
                         int item =menuItem.getItemId();
                         switch (item) {
                             case R.id.menuTab:
-                                addFragment(new MenuFragment());
+                                addFragment(new NewOrdenFragment());
                                 break;
                             case R.id.pedidoTab:
                                 addFragment(new MesaFragment());
