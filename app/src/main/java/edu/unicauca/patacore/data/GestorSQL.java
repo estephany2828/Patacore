@@ -89,7 +89,7 @@ public class GestorSQL {
             producto.setCodigo(cursor.getInt(0));
             producto.setNombre(cursor.getString(1));
             producto.setDescripcion(cursor.getString(2));
-            producto.setCantidad(cursor.getInt(3));
+            producto.setCantidad(cursor.getInt(3));  // Quitar
             producto.setImagen(cursor.getInt(4));
             boolean selected = false;
             if (cursor.getInt(5) == 1) {

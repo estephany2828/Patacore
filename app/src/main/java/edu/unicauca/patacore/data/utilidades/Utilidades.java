@@ -11,9 +11,9 @@ public class Utilidades {
     public static final String CAMPO_ID="id";
     public static final String CAMPO_NOMBRE="nombre";
     public static final String CAMPO_DESCRIPCION ="descripcion";
-    public static final String CAMPO_CANTIDAD ="cantidad";
+    public static final String CAMPO_CANTIDAD ="cantidad";      //quitar
     public static final String CAMPO_IMAGEN ="imagen";
-    public static final String CAMPO_SELECTED ="selected";
+    public static final String CAMPO_SELECTED ="selected";   //quitar
 
 
     public static final String CREAR_TABLA_PRODUCTO ="CREATE TABLE " +
